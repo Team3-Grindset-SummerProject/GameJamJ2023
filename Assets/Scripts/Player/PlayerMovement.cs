@@ -21,10 +21,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheckPosition;
     [SerializeField] private Transform wallCheckPosition;
     [SerializeField] private Transform ceilingCheckPosition;
+    [SerializeField] private SpriteRenderer playerSprite;
+    [SerializeField] private Animator playerAnimator;
 
     [Space] [SerializeField] private Vector2 velocity;
     [SerializeField] private float horizontalVelocityImpulse;
     [SerializeField] private Vector2 moveInput;
+    [SerializeField] private float prevDir = 1;
     
     [Space] [SerializeField] private float moveSpeed;
     [SerializeField] private float moveLerp;
@@ -102,6 +105,20 @@ public class PlayerMovement : MonoBehaviour
 
         if (playerState == PlayerState.Clinging)
             velocity.y += wallGravity * Time.deltaTime;
+
+        // Animation.
+
+        if (velocity.x > 0f)
+        {
+            playerSprite.flipX = false;
+        }
+
+        if (velocity.x < 0f)
+        {
+            playerSprite.flipX = true;
+        }
+        
+        playerAnimator.SetBool("Moving", moveInput.x != 0);
     }
 
     private void CheckWall()

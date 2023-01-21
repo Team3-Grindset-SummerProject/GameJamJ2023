@@ -44,6 +44,15 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JumpRelease"",
+                    ""type"": ""Value"",
+                    ""id"": ""84ace4c5-28df-4f71-b42f-5c8bf962797a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -178,6 +187,28 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d56a9922-b1af-4b69-8659-60bc806eec71"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JumpRelease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a7c7b8d9-ab23-4c01-b6f7-d687098c7fb9"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JumpRelease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -188,6 +219,7 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         m_Active = asset.FindActionMap("Active", throwIfNotFound: true);
         m_Active_Move = m_Active.FindAction("Move", throwIfNotFound: true);
         m_Active_Jump = m_Active.FindAction("Jump", throwIfNotFound: true);
+        m_Active_JumpRelease = m_Active.FindAction("JumpRelease", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -249,12 +281,14 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
     private IActiveActions m_ActiveActionsCallbackInterface;
     private readonly InputAction m_Active_Move;
     private readonly InputAction m_Active_Jump;
+    private readonly InputAction m_Active_JumpRelease;
     public struct ActiveActions
     {
         private @InputManager m_Wrapper;
         public ActiveActions(@InputManager wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Active_Move;
         public InputAction @Jump => m_Wrapper.m_Active_Jump;
+        public InputAction @JumpRelease => m_Wrapper.m_Active_JumpRelease;
         public InputActionMap Get() { return m_Wrapper.m_Active; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -270,6 +304,9 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_ActiveActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_ActiveActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_ActiveActionsCallbackInterface.OnJump;
+                @JumpRelease.started -= m_Wrapper.m_ActiveActionsCallbackInterface.OnJumpRelease;
+                @JumpRelease.performed -= m_Wrapper.m_ActiveActionsCallbackInterface.OnJumpRelease;
+                @JumpRelease.canceled -= m_Wrapper.m_ActiveActionsCallbackInterface.OnJumpRelease;
             }
             m_Wrapper.m_ActiveActionsCallbackInterface = instance;
             if (instance != null)
@@ -280,6 +317,9 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @JumpRelease.started += instance.OnJumpRelease;
+                @JumpRelease.performed += instance.OnJumpRelease;
+                @JumpRelease.canceled += instance.OnJumpRelease;
             }
         }
     }
@@ -288,5 +328,6 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnJumpRelease(InputAction.CallbackContext context);
     }
 }

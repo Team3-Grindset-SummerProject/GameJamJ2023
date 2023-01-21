@@ -34,15 +34,19 @@ public class BigBadBehavior : MonoBehaviour
         enemySpeed = 10;
     }
 
-    public void hurtEnemy(int damage)
+    public void hurtEnemy(int damage, bool shouldSlow)
     {
         health -= damage;
         if(health <= 0)
         {
             SlowEnemy(0, 2.0f);
+            health = 5;
             return;
         }
-        SlowEnemy(0, 0.15f);
+        if (shouldSlow)
+        {
+            SlowEnemy(0, 0.15f);
+        }
     }
 
     public IEnumerator EnemyReversal()

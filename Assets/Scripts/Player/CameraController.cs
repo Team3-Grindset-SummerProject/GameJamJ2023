@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 newPosition = new Vector3(followTransform.position.x, followTransform.position.y + 3, -7);
+        Vector3 newPosition = new Vector3(followTransform.position.x, followTransform.position.y + 3, -12);
         
         transform.position = Vector3.Lerp(transform.position, newPosition, cameraSpeed * Time.fixedDeltaTime);
     }

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DamageTestScript : MonoBehaviour
 {
-    [SerializeField] private int damageOrSlowSpeed = 0;
+    [SerializeField] private int damage = 0;
+    [SerializeField] private int slowSpeed = 0;
     private GameObject bigBadGuy = null;
     [SerializeField] private GameObject myself = null;
     private float xDistance = 0;
@@ -27,24 +28,33 @@ public class DamageTestScript : MonoBehaviour
 
         if(xDistance <= 0.5 && yDistance <= 0.5)
         {
+
+            if (isGlue)
+            {
+                SlowBadGuy();
+            }
             if (isHurt)
             {
                 AttackBadGuy();
                 return;
             }
-            if (isGlue)
+            if(!isGlue && !isHurt)
             {
-                SlowBadGuy();
-                return;
+                ReverseBadGuy();
             }
-            ReverseBadGuy();
         }
 
     }
 
     private void AttackBadGuy()
     {
-        bigBadGuy.GetComponent<BigBadBehavior>().hurtEnemy(damageOrSlowSpeed);
+        bool shouldSlow = true;
+        if (isGlue)
+        {
+            shouldSlow = false;
+        }
+        Debug.Log("High Yay");
+        bigBadGuy.GetComponent<BigBadBehavior>().hurtEnemy(damage, shouldSlow);
         Destroy(myself);
     }
 
@@ -56,7 +66,7 @@ public class DamageTestScript : MonoBehaviour
 
     private void SlowBadGuy()
     {
-        bigBadGuy.GetComponent<BigBadBehavior>().SlowEnemy(damageOrSlowSpeed, 3.0f);
+        bigBadGuy.GetComponent<BigBadBehavior>().SlowEnemy(slowSpeed, 3.0f);
         Destroy(myself);
     }
 

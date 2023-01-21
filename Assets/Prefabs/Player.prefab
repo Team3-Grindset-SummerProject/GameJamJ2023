@@ -60,18 +60,18 @@ MonoBehaviour:
   velocity: {x: 0, y: -0.01}
   horizontalVelocityImpulse: 0
   moveInput: {x: 0, y: 0}
-  moveSpeed: 10
+  moveSpeed: 6
   moveLerp: 15
   impulseLerp: 15
-  jumpForce: 12.5
+  jumpForce: 14.5
   jumpReleaseAvailable: 0
-  gravity: -30
+  gravity: -37.5
   groundCheckMaxDistance: 0.45
   secondJumpAvailable: 0
   secondJumpConsumed: 0
   wallJumpForce: 0.75
   wallMoveSpeed: 7
-  wallJumpDirection: {x: 1.5, y: 18}
+  wallJumpDirection: {x: 1.15, y: 18}
   wallGravity: -7
   wallDirection: -1
   maxWallDistance: 1

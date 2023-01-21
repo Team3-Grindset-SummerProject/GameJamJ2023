@@ -121,6 +121,9 @@ public class PlayerMovement : MonoBehaviour
                 wallJumpDirection = new Vector2(wallJumpDirection.x, wallJumpDirection.y);
 
                 canWallJump = true;
+
+                if (velocity.y > 0.1f)
+                    velocity.y = 0.0f;
             }
         }
         else if (canWallJump && !wallCheckDisableInvoked)

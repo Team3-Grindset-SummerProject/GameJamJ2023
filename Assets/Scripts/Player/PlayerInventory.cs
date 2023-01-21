@@ -11,9 +11,9 @@ public class PlayerInventory : MonoBehaviour
     private int unoReverseCard = 0;
     private int glue = 0;
     private int acid = 0;
-    private int heavyItems;
-    private int mediumItems;
-    private int lightItems;
+    private int heavyItems = 7;
+    private int mediumItems = 4;
+    private int lightItems = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,15 +26,29 @@ public class PlayerInventory : MonoBehaviour
         
     }
 
-    public void addItem(int itemWeight, string itemName)
+    public void addItem(string itemName)
     {
-        if(inventorySpace - itemWeight < 0)
+        int itemWeight = 1;
+        if(itemName.Equals("acid") || itemName.Equals("glue"))
+        {
+            itemWeight = 1;
+        }
+        if (itemName.Equals("laserGun") || itemName.Equals("unoCard"))
+        {
+            itemWeight = 4;
+        }
+        if (itemName.Equals("blackHole") || itemName.Equals("NED"))
+        {
+            itemWeight = 7;
+        }
+
+        if (inventorySpace - itemWeight < 0)
         {
             return;
         }
         if (itemName.Equals("acid"))
         {
-            if(lightItems == 7)
+            if(lightItems > 7)
             {
                 return;
             }
@@ -44,7 +58,7 @@ public class PlayerInventory : MonoBehaviour
         }
         if (itemName.Equals("glue"))
         {
-            if (lightItems == 7)
+            if (lightItems > 7)
             {
                 return;
             }
@@ -54,7 +68,7 @@ public class PlayerInventory : MonoBehaviour
         }
         if (itemName.Equals("laserGun"))
         {
-            if (mediumItems == 4)
+            if (mediumItems > 4)
             {
                 return;
             }
@@ -64,7 +78,7 @@ public class PlayerInventory : MonoBehaviour
         }
         if (itemName.Equals("unoCard"))
         {
-            if (mediumItems == 4)
+            if (mediumItems > 4)
             {
                 return;
             }
@@ -74,7 +88,7 @@ public class PlayerInventory : MonoBehaviour
         }
         if (itemName.Equals("blackHole"))
         {
-            if (heavyItems == 2)
+            if (heavyItems > 2)
             {
                 return;
             }
@@ -84,7 +98,7 @@ public class PlayerInventory : MonoBehaviour
         }
         if (itemName.Equals("NED"))
         {
-            if (heavyItems == 2)
+            if (heavyItems > 2)
             {
                 return;
             }
@@ -111,6 +125,7 @@ public class PlayerInventory : MonoBehaviour
             {
                 return;
             }
+            Debug.Log("Glue");
             glue--;
             lightItems--;
         }

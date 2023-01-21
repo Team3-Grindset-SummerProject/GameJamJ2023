@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DamageTestScript : MonoBehaviour
 {
-    [SerializeField] private int damage = 0;
+    [SerializeField] private int damageOrSlowSpeed = 0;
     private GameObject bigBadGuy = null;
     [SerializeField] private GameObject myself = null;
     private float xDistance = 0;
@@ -44,7 +44,7 @@ public class DamageTestScript : MonoBehaviour
 
     private void AttackBadGuy()
     {
-        bigBadGuy.GetComponent<BigBadBehavior>().hurtEnemy(damage);
+        bigBadGuy.GetComponent<BigBadBehavior>().hurtEnemy(damageOrSlowSpeed);
         Destroy(myself);
     }
 
@@ -56,7 +56,7 @@ public class DamageTestScript : MonoBehaviour
 
     private void SlowBadGuy()
     {
-        bigBadGuy.GetComponent<BigBadBehavior>().SlowEnemy(5, 3.0f);
+        bigBadGuy.GetComponent<BigBadBehavior>().SlowEnemy(damageOrSlowSpeed, 3.0f);
         Destroy(myself);
     }
 

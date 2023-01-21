@@ -8,6 +8,7 @@ public class BigBadBehavior : MonoBehaviour
     private float enemySpeed = 10;
     private GameObject player = null;
     [SerializeField] private NavMeshAgent agent = null;
+    [SerializeField] private GameObject reversePoint = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +39,16 @@ public class BigBadBehavior : MonoBehaviour
         health -= damage;
         if(health <= 0)
         {
-            SlowEnemy(0, 4.0f);
+            SlowEnemy(0, 2.0f);
+            return;
         }
+        SlowEnemy(0, 0.15f);
+    }
+
+    public IEnumerator EnemyReversal()
+    {
+        player = reversePoint;
+        yield return new WaitForSeconds(2.0f);
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 }

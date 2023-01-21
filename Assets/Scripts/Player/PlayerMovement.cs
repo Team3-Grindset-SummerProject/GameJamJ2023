@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     [Space] [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform groundCheckPosition;
     [SerializeField] private Transform wallCheckPosition;
+    [SerializeField] private Transform ceilingCheckPosition;
 
     [Space] [SerializeField] private Vector2 velocity;
     [SerializeField] private float horizontalVelocityImpulse;
@@ -33,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool jumpReleaseAvailable;
     [SerializeField] private float gravity;
     [SerializeField] private float groundCheckMaxDistance;
+    [SerializeField] private bool secondJumpAvailable;
+    [SerializeField] private bool secondJumpConsumed;
 
     [Space] [SerializeField] private float wallJumpForce;
     [SerializeField] private float wallMoveSpeed;
@@ -43,10 +46,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool canWallJump;
     [SerializeField] private bool wallCheckDisableInvoked;
     [SerializeField] private bool wallJumpEnabled;
+    [SerializeField] private bool hasWallJumped;
 
     private void Update()
     {
         velocity.x = ((playerState == PlayerState.Clinging ? wallMoveSpeed : moveSpeed) * moveInput.x) * Time.deltaTime;
+
+        if (hasWallJumped && Math.Abs(moveInput.x - (-wallDirection)) < 0.1)
+        {
+            velocity.x *= 0.2f;
+        }
 
         horizontalVelocityImpulse = Mathf.Lerp(horizontalVelocityImpulse, 0, impulseLerp * Time.deltaTime);
 
@@ -54,7 +63,6 @@ public class PlayerMovement : MonoBehaviour
        
         rb.velocity = tempVelocity + new Vector2(horizontalVelocityImpulse, 0f);
 
-        // Ground Check, modify for wall cling later.
         RaycastHit groundHit;
         if (Physics.Raycast(groundCheckPosition.position, transform.TransformDirection(Vector3.down), out groundHit, groundCheckMaxDistance))
         {
@@ -64,11 +72,23 @@ public class PlayerMovement : MonoBehaviour
                 velocity.y = -0.01f;
 
                 jumpReleaseAvailable = false;
+
+                secondJumpAvailable = false;
+                secondJumpConsumed = false;
             }
         }
         else if (playerState != PlayerState.Clinging)
         {
             playerState = PlayerState.Airborne;
+        }
+        
+        RaycastHit ceilingHit;
+        if (Physics.Raycast(ceilingCheckPosition.position, transform.TransformDirection(Vector3.up), out ceilingHit, groundCheckMaxDistance))
+        {
+            if (velocity.y > 0.1f)
+            {
+                velocity.y = 0;
+            }
         }
         
         CheckWall();
@@ -117,35 +137,57 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnJump()
     {
-        if (playerState == PlayerState.Grounded)
+        if (playerState == PlayerState.Grounded || (secondJumpAvailable && playerState != PlayerState.Clinging))
         {
-            velocity.y += jumpForce;
+            if (!secondJumpConsumed)
+            {
+                velocity.y += jumpForce;
+
+                Invoke(nameof(EnableSecondJump), 0.3f);
+            }
+            else
+            {
+                velocity.y = jumpForce;
+            }
+            
+            secondJumpAvailable = false;
             
             Invoke(nameof(EnableJumpRelease), 0.1f);
         }
 
         if (playerState == PlayerState.Clinging)
         {
-            velocity.y += wallJumpDirection.y * wallJumpForce;
+            velocity.y = wallJumpDirection.y * wallJumpForce;
             horizontalVelocityImpulse += (wallJumpDirection.x * -wallDirection) * wallJumpForce;
             
             wallJumpEnabled = false;
             canWallJump = false;
-
+            hasWallJumped = true;
+            
             playerState = PlayerState.Airborne;
-
+            
             Invoke(nameof(EnableWallJump), 0.25f);
+            Invoke(nameof(EndWallJump), 0.25f);
+            Invoke(nameof(EnableSecondJump), 0.3f);
         }
     }
 
     private void OnJumpRelease(InputValue value)
     {
+        if (secondJumpConsumed)
+            return;;
+        
         if (value.Get<float>() == 0 && jumpReleaseAvailable && velocity.y > 0.1f)
         {
             velocity.y = 0.1f;
 
             jumpReleaseAvailable = false;
         }
+    }
+
+    private void EndWallJump()
+    {
+        hasWallJumped = false;
     }
 
     private void EnableJumpRelease()
@@ -162,5 +204,11 @@ public class PlayerMovement : MonoBehaviour
     private void EnableWallJump()
     {
         wallJumpEnabled = true;
+    }
+
+    private void EnableSecondJump()
+    {
+        secondJumpAvailable = true;
+        secondJumpConsumed = true;
     }
 }

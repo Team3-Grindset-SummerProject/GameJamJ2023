@@ -422,21 +422,21 @@ MonoBehaviour:
   rb: {fileID: 459703471}
   groundCheckPosition: {fileID: 1484305036}
   wallCheckPosition: {fileID: 588925232}
-  velocity: {x: 0, y: 0}
+  velocity: {x: 0, y: -0.01}
   horizontalVelocityImpulse: 0
   moveInput: {x: 0, y: 0}
   moveSpeed: 10
   moveLerp: 15
-  impulseLerp: 10
+  impulseLerp: 15
   jumpForce: 12.5
   jumpReleaseAvailable: 0
-  gravity: -25
+  gravity: -30
   groundCheckMaxDistance: 0.45
   wallJumpForce: 0.75
   wallMoveSpeed: 7
-  wallJumpDirection: {x: 1.5, y: 2}
+  wallJumpDirection: {x: 1.5, y: 17}
   wallGravity: -7
-  wallDirection: 0
+  wallDirection: -1
   maxWallDistance: 1
   canWallJump: 0
   wallCheckDisableInvoked: 0

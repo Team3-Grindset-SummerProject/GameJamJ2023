@@ -53,6 +53,15 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""PlaceTrap"",
+                    ""type"": ""Button"",
+                    ""id"": ""86a3625d-5748-4ee1-b1ac-c01965c1fa98"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -209,6 +218,28 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""action"": ""JumpRelease"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""16e56dca-cf31-4046-aa5f-197c7fdb4f1f"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlaceTrap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4466db2a-8233-4526-9558-1d86e01dfdf6"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlaceTrap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -220,6 +251,7 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         m_Active_Move = m_Active.FindAction("Move", throwIfNotFound: true);
         m_Active_Jump = m_Active.FindAction("Jump", throwIfNotFound: true);
         m_Active_JumpRelease = m_Active.FindAction("JumpRelease", throwIfNotFound: true);
+        m_Active_PlaceTrap = m_Active.FindAction("PlaceTrap", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -282,6 +314,7 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
     private readonly InputAction m_Active_Move;
     private readonly InputAction m_Active_Jump;
     private readonly InputAction m_Active_JumpRelease;
+    private readonly InputAction m_Active_PlaceTrap;
     public struct ActiveActions
     {
         private @InputManager m_Wrapper;
@@ -289,6 +322,7 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Active_Move;
         public InputAction @Jump => m_Wrapper.m_Active_Jump;
         public InputAction @JumpRelease => m_Wrapper.m_Active_JumpRelease;
+        public InputAction @PlaceTrap => m_Wrapper.m_Active_PlaceTrap;
         public InputActionMap Get() { return m_Wrapper.m_Active; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -307,6 +341,9 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                 @JumpRelease.started -= m_Wrapper.m_ActiveActionsCallbackInterface.OnJumpRelease;
                 @JumpRelease.performed -= m_Wrapper.m_ActiveActionsCallbackInterface.OnJumpRelease;
                 @JumpRelease.canceled -= m_Wrapper.m_ActiveActionsCallbackInterface.OnJumpRelease;
+                @PlaceTrap.started -= m_Wrapper.m_ActiveActionsCallbackInterface.OnPlaceTrap;
+                @PlaceTrap.performed -= m_Wrapper.m_ActiveActionsCallbackInterface.OnPlaceTrap;
+                @PlaceTrap.canceled -= m_Wrapper.m_ActiveActionsCallbackInterface.OnPlaceTrap;
             }
             m_Wrapper.m_ActiveActionsCallbackInterface = instance;
             if (instance != null)
@@ -320,6 +357,9 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                 @JumpRelease.started += instance.OnJumpRelease;
                 @JumpRelease.performed += instance.OnJumpRelease;
                 @JumpRelease.canceled += instance.OnJumpRelease;
+                @PlaceTrap.started += instance.OnPlaceTrap;
+                @PlaceTrap.performed += instance.OnPlaceTrap;
+                @PlaceTrap.canceled += instance.OnPlaceTrap;
             }
         }
     }
@@ -329,5 +369,6 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnJumpRelease(InputAction.CallbackContext context);
+        void OnPlaceTrap(InputAction.CallbackContext context);
     }
 }

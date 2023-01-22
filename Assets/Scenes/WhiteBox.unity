@@ -415,72 +415,72 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1895847857106851706
+--- !u!1001 &6532024388035128101
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1895847857614220241, guid: 01f0e6981e6484e44a2f3126d29ad3cb,
-        type: 3}
-      propertyPath: m_Name
-      value: LevelDesign_WhiteBox_FeelFreeToPlayTest
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895847857614220246, guid: 01f0e6981e6484e44a2f3126d29ad3cb,
+    - target: {fileID: 6532024387536181129, guid: 944ddcbe7652f224b941a92279587d8b,
         type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1895847857614220246, guid: 01f0e6981e6484e44a2f3126d29ad3cb,
+    - target: {fileID: 6532024387536181129, guid: 944ddcbe7652f224b941a92279587d8b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.7147737
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1895847857614220246, guid: 01f0e6981e6484e44a2f3126d29ad3cb,
+    - target: {fileID: 6532024387536181129, guid: 944ddcbe7652f224b941a92279587d8b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.76395
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1895847857614220246, guid: 01f0e6981e6484e44a2f3126d29ad3cb,
+    - target: {fileID: 6532024387536181129, guid: 944ddcbe7652f224b941a92279587d8b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -28.044199
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1895847857614220246, guid: 01f0e6981e6484e44a2f3126d29ad3cb,
+    - target: {fileID: 6532024387536181129, guid: 944ddcbe7652f224b941a92279587d8b,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1895847857614220246, guid: 01f0e6981e6484e44a2f3126d29ad3cb,
+    - target: {fileID: 6532024387536181129, guid: 944ddcbe7652f224b941a92279587d8b,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1895847857614220246, guid: 01f0e6981e6484e44a2f3126d29ad3cb,
+    - target: {fileID: 6532024387536181129, guid: 944ddcbe7652f224b941a92279587d8b,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1895847857614220246, guid: 01f0e6981e6484e44a2f3126d29ad3cb,
+    - target: {fileID: 6532024387536181129, guid: 944ddcbe7652f224b941a92279587d8b,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1895847857614220246, guid: 01f0e6981e6484e44a2f3126d29ad3cb,
+    - target: {fileID: 6532024387536181129, guid: 944ddcbe7652f224b941a92279587d8b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1895847857614220246, guid: 01f0e6981e6484e44a2f3126d29ad3cb,
+    - target: {fileID: 6532024387536181129, guid: 944ddcbe7652f224b941a92279587d8b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1895847857614220246, guid: 01f0e6981e6484e44a2f3126d29ad3cb,
+    - target: {fileID: 6532024387536181129, guid: 944ddcbe7652f224b941a92279587d8b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6532024387536181134, guid: 944ddcbe7652f224b941a92279587d8b,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelDesign_WhiteBox_FeelFreeToPlayTest
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 01f0e6981e6484e44a2f3126d29ad3cb, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 944ddcbe7652f224b941a92279587d8b, type: 3}

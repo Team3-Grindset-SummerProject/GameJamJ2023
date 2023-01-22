@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlaceTrap : MonoBehaviour
@@ -9,7 +10,7 @@ public class PlaceTrap : MonoBehaviour
     [SerializeField] private GameObject currentTrap;
     [SerializeField] private bool canPlaceTrap;
     [SerializeField] private TrapZone closestTrap;
-
+    
     private void Start()
     {
         GameObject[] tempZones = GameObject.FindGameObjectsWithTag("TrapZone");

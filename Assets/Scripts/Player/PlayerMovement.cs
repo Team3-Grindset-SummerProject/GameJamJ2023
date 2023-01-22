@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     
     [Space] [Header("Objects")] [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform groundCheckPositionL;
+    [SerializeField] private Transform groundCheckPositionM;
     [SerializeField] private Transform groundCheckPositionR;
     [SerializeField] private Transform wallCheckPosition;
     [SerializeField] private Transform ceilingCheckPosition;
@@ -71,7 +72,8 @@ public class PlayerMovement : MonoBehaviour
 
         RaycastHit groundHit;
         if (Physics.Raycast(groundCheckPositionL.position, transform.TransformDirection(Vector3.down), out groundHit, groundCheckMaxDistance)
-            || Physics.Raycast(groundCheckPositionR.position, transform.TransformDirection(Vector3.down), out groundHit, groundCheckMaxDistance))
+            || Physics.Raycast(groundCheckPositionR.position, transform.TransformDirection(Vector3.down), out groundHit, groundCheckMaxDistance)
+                || Physics.Raycast(groundCheckPositionM.position, transform.TransformDirection(Vector3.down), out groundHit, groundCheckMaxDistance))
         {
             if (velocity.y < 0)
             {

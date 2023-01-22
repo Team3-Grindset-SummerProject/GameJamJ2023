@@ -108,9 +108,6 @@ public class PlayerMovement : MonoBehaviour
         
         CheckWall();
 
-        if (_canWallJump)
-            playerState = PlayerState.Clinging;
-
         // Gravity.
         if (playerState == PlayerState.Airborne)
             velocity.y += gravity * Time.deltaTime;
@@ -162,11 +159,14 @@ public class PlayerMovement : MonoBehaviour
                 if (velocity.y > 0.1f)
                     velocity.y = 0.0f;
             }
+            
+            playerState = PlayerState.Clinging;
         }
         else if (_canWallJump && !wallCheckDisableInvoked)
         {
             Invoke(nameof(DisableWallJump), 0.2f);
             wallCheckDisableInvoked = true;
+            playerState = PlayerState.Airborne;
         }
     }
 
@@ -195,7 +195,7 @@ public class PlayerMovement : MonoBehaviour
             Invoke(nameof(EnableJumpRelease), 0.1f);
         }
 
-        if (playerState == PlayerState.Clinging)
+        if (_canWallJump)
         {
             velocity.y = wallJumpDirection.y * wallJumpForce;
             horizontalVelocityImpulse += (wallJumpDirection.x * -_wallDirection) * wallJumpForce;

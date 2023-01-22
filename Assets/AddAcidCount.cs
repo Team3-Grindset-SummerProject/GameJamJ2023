@@ -7,11 +7,38 @@ using TMPro;
 public class AddAcidCount : MonoBehaviour
 {
    public TextMeshProUGUI WeightChange;
-   public int number = 0;
+   private int number = 0;
 
-   public void ButtonClicked()
+   public void AcidClicked()
    {
-    number += 2;
-    WeightChange.text = number.ToString();
+        if(number < 14)
+        {
+             number += 2;
+            WeightChange.text = number.ToString();
+        }
    }
+
+    public void TimeClicked()
+   {
+        if(number < 12)
+        {
+             number += 4;
+         WeightChange.text = number.ToString();
+        }
+
+   }
+
+    public void BlackHoleClicked()
+    {
+        
+        if(number < 13)
+        {
+             number += 7;
+         WeightChange.text = number.ToString();
+    
+        }
+    
+    }
+   
+
 }

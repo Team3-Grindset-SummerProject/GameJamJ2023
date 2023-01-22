@@ -1,0 +1,673 @@
+fileFormatVersion: 2
+guid: 7f86d51f289bfc749a696da63d2f6edb
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4090
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31d1d5c23cc5a3e4a9d3fd843f1d9a44
+      internalID: -594842795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_1
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 4096
+        width: 984
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61c60dc31009bc140a141997076c19bb
+      internalID: 338024167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_2
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 4096
+        width: 1004
+        height: 1015
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be20c0f245b87ef438c4b5bbf6b08654
+      internalID: -1854691933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_3
+      rect:
+        serializedVersion: 2
+        x: 3079
+        y: 4096
+        width: 994
+        height: 1018
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4880c49ccf60db4da75d0d8b7a7897e
+      internalID: -594929624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_4
+      rect:
+        serializedVersion: 2
+        x: 4092
+        y: 4096
+        width: 1208
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f9d1d5d4b6c51542ae6ad9dd07e2caa
+      internalID: -1029990381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 997
+        height: 1012
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ba3ccf6de871164d8c79fac78374eaa
+      internalID: -912525388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_6
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 3072
+        width: 1009
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 148093a597939854484b339ddab5f10d
+      internalID: -1743921267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_7
+      rect:
+        serializedVersion: 2
+        x: 2046
+        y: 3072
+        width: 1008
+        height: 1033
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdd47ad7c7484954a94c47be209358bc
+      internalID: 1816626811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_8
+      rect:
+        serializedVersion: 2
+        x: 3063
+        y: 3072
+        width: 1033
+        height: 1021
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d90dc06cbe7c9249807677d1d63de42
+      internalID: 1560079057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_9
+      rect:
+        serializedVersion: 2
+        x: 4099
+        y: 3072
+        width: 1201
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af9e597cad7005f47a84943886e94b8a
+      internalID: 36364491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 1019
+        height: 1010
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd53b74af7c1af94082ddf5908efce2f
+      internalID: 1684286411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_11
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 991
+        height: 1010
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd58651cbb117c041857568ddc25d3c7
+      internalID: -939649390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_12
+      rect:
+        serializedVersion: 2
+        x: 2058
+        y: 2051
+        width: 987
+        height: 1015
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2c1f1aa9256e4e4288fcf6ee4f313b0
+      internalID: 2119112935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_13
+      rect:
+        serializedVersion: 2
+        x: 3057
+        y: 2048
+        width: 1023
+        height: 1021
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b480ac32235ab4b84887d9810ef716
+      internalID: 759833237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_14
+      rect:
+        serializedVersion: 2
+        x: 4093
+        y: 2048
+        width: 1014
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 879642b6084d3d442972642c4926d0b7
+      internalID: 1654089910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 1019
+        height: 1004
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2b11ad20b285ee4a9c5b2a5e90dedc4
+      internalID: 831378411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_16
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 1024
+        width: 1000
+        height: 999
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f42da2ae680e0f7439d6727409f55001
+      internalID: -559136070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_17
+      rect:
+        serializedVersion: 2
+        x: 2051
+        y: 1029
+        width: 1015
+        height: 1008
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d623f294fd44b0d48affb2c1eaf49c7d
+      internalID: 403244112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_18
+      rect:
+        serializedVersion: 2
+        x: 3074
+        y: 1024
+        width: 1025
+        height: 1013
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab37b4cc79902394e9f2194006629f41
+      internalID: -926945197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_19
+      rect:
+        serializedVersion: 2
+        x: 4106
+        y: 1024
+        width: 1194
+        height: 1013
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be8b0f854c9e27b46ace29ac6b5e045f
+      internalID: 1113595843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1002
+        height: 1010
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb1a66033e9307d4e992a88a918a3614
+      internalID: -1310423808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_21
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 0
+        width: 1000
+        height: 1019
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d116d72a84ec0624486473fe66d0f445
+      internalID: -416052157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_22
+      rect:
+        serializedVersion: 2
+        x: 2042
+        y: 0
+        width: 1009
+        height: 1018
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d408245678a2d9b4b9148aa607d8a0f8
+      internalID: -2094971687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_23
+      rect:
+        serializedVersion: 2
+        x: 3071
+        y: 0
+        width: 1169
+        height: 1015
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5886076b73b58a4da6ed4e3a4a5f87d
+      internalID: 750747246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Trap_BlackHole_24
+      rect:
+        serializedVersion: 2
+        x: 4240
+        y: 0
+        width: 1060
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccaba4ac7dc360a4ba039d5056947eeb
+      internalID: -1081131599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a3febeea6566a3b479dd6689b02a708b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Sprite_Trap_BlackHole_15: 831378411
+      Sprite_Trap_BlackHole_11: -939649390
+      Sprite_Trap_BlackHole_6: -1743921267
+      Sprite_Trap_BlackHole_9: 36364491
+      Sprite_Trap_BlackHole_12: 2119112935
+      Sprite_Trap_BlackHole_3: -594929624
+      Sprite_Trap_BlackHole_19: 1113595843
+      Sprite_Trap_BlackHole_0: -594842795
+      Sprite_Trap_BlackHole_2: -1854691933
+      Sprite_Trap_BlackHole_18: -926945197
+      Sprite_Trap_BlackHole_4: -1029990381
+      Sprite_Trap_BlackHole_14: 1654089910
+      Sprite_Trap_BlackHole_7: 1816626811
+      Sprite_Trap_BlackHole_16: -559136070
+      Sprite_Trap_BlackHole_1: 338024167
+      Sprite_Trap_BlackHole_10: 1684286411
+      Sprite_Trap_BlackHole_22: -2094971687
+      Sprite_Trap_BlackHole_5: -912525388
+      Sprite_Trap_BlackHole_21: -416052157
+      Sprite_Trap_BlackHole_23: 750747246
+      Sprite_Trap_BlackHole_17: 403244112
+      Sprite_Trap_BlackHole_13: 759833237
+      Sprite_Trap_BlackHole_20: -1310423808
+      Sprite_Trap_BlackHole_24: -1081131599
+      Sprite_Trap_BlackHole_8: 1560079057
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -37,3 +37,16 @@
 15:03:42:013 [INFO]	gude policy POLICY_USER limit (4,4,1) chunk 2097152, chunking (UL 0 DL 1), resXfer 1, adapt 0, NSURL 1, timeout 86400 
 15:03:42:013 [INFO]	Initialized -- gude-lib version: v0.12.1 app: gude
 15:03:42:083 [WARN]	Request Failed. ErrorCode: 112007 errorMessage: Platform Status, Send Request Failed. WinHTTP Name Not Resolved. last error code = 12007 
+15:20:30:147 [ALWAYS]	GUDE Logging Started
+15:20:30:148 [INFO]	SqliteResumeCache::SqliteResumeCache basedirectory is null/empty
+15:20:30:148 [ERROR]	SqliteResumeCache::CreateSqliteResumeCache creating resume cache pointer failure
+15:20:30:148 [ERROR]	Initialize resume cache pointer failure
+15:20:30:148 [INFO]	gude policy POLICY_USER limit (2,2,1) chunk 2097152, chunking (UL 0 DL 1), resXfer 1, adapt 0, NSURL 0, timeout 86400 
+15:20:30:148 [INFO]	Initialized -- gude-lib version: v0.12.1 app: gude
+15:20:36:910 [WARN]	Ignoring attempt to reinit logging to \gude at level 4 retaining 3 days of logs
+15:20:36:910 [INFO]	SqliteResumeCache::SqliteResumeCache basedirectory is null/empty
+15:20:36:910 [ERROR]	SqliteResumeCache::CreateSqliteResumeCache creating resume cache pointer failure
+15:20:36:910 [ERROR]	Initialize resume cache pointer failure
+15:20:36:910 [INFO]	gude policy POLICY_USER limit (4,4,1) chunk 2097152, chunking (UL 0 DL 1), resXfer 1, adapt 0, NSURL 1, timeout 86400 
+15:20:36:910 [INFO]	Initialized -- gude-lib version: v0.12.1 app: gude
+15:20:36:986 [WARN]	Request Failed. ErrorCode: 112007 errorMessage: Platform Status, Send Request Failed. WinHTTP Name Not Resolved. last error code = 12007 

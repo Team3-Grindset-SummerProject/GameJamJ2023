@@ -6,14 +6,12 @@ public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] private int inventorySpace = 20;
     private int blackHoles = 0;
-    private int ned = 0;
-    private int laserGun = 0;
     private int unoReverseCard = 0;
-    private int glue = 0;
     private int acid = 0;
     private int heavyItems = 0;
     private int mediumItems = 0;
     private int lightItems = 0;
+    private int totalWeight = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,15 +27,15 @@ public class PlayerInventory : MonoBehaviour
     public void addItem(string itemName)
     {
         int itemWeight = 1;
-        if(itemName.Equals("acid") || itemName.Equals("glue"))
+        if(itemName.Equals("acid"))
         {
             itemWeight = 1;
         }
-        if (itemName.Equals("laserGun") || itemName.Equals("unoCard"))
+        if (itemName.Equals("laserGun"))
         {
             itemWeight = 4;
         }
-        if (itemName.Equals("blackHole") || itemName.Equals("NED"))
+        if (itemName.Equals("blackHole"))
         {
             itemWeight = 7;
         }
@@ -55,27 +53,7 @@ public class PlayerInventory : MonoBehaviour
             inventorySpace -= itemWeight;
             acid++;
             lightItems++;
-        }
-        if (itemName.Equals("glue"))
-        {
-            if (lightItems >= 7)
-            {
-                return;
-            }
-            inventorySpace -= itemWeight;
-            glue++;
-            lightItems++;
-
-        }
-        if (itemName.Equals("laserGun"))
-        {
-            if (mediumItems >= 4)
-            {
-                return;
-            }
-            inventorySpace -= itemWeight;
-            laserGun++;
-            mediumItems++;
+            totalWeight += itemWeight;
         }
         if (itemName.Equals("unoCard"))
         {
@@ -86,6 +64,7 @@ public class PlayerInventory : MonoBehaviour
             inventorySpace -= itemWeight;
             unoReverseCard++;
             mediumItems++;
+            totalWeight += itemWeight;
         }
         if (itemName.Equals("blackHole"))
         {
@@ -96,16 +75,7 @@ public class PlayerInventory : MonoBehaviour
             inventorySpace -= itemWeight;
             blackHoles++;
             heavyItems++;
-        }
-        if (itemName.Equals("NED"))
-        {
-            if (heavyItems >= 2)
-            {
-                return;
-            }
-            inventorySpace -= itemWeight;
-            ned++;
-            heavyItems++;
+            totalWeight += itemWeight;
         }
     }
 
@@ -120,25 +90,7 @@ public class PlayerInventory : MonoBehaviour
             acid--;
             lightItems--;
         }
-        if (itemName.Equals("glue"))
-        {
-            if (glue == 0)
-            {
-                return;
-            }
-            Debug.Log("Glue");
-            glue--;
-            lightItems--;
-        }
-        if (itemName.Equals("laserGun"))
-        {
-            if (laserGun == 0)
-            {
-                return;
-            }
-            laserGun--;
-            mediumItems--;
-        }
+
         if (itemName.Equals("unoCard"))
         {
             if (unoReverseCard == 0)
@@ -157,15 +109,26 @@ public class PlayerInventory : MonoBehaviour
             blackHoles--;
             heavyItems--;
         }
-        if (itemName.Equals("NED"))
-        {
-            if (ned == 0)
-            {
-                return;
-            }
-            ned--;
-            heavyItems--;
-        }
+
     }
 
+    public int GetTotalWeight()
+    {
+        return totalWeight;
+    }
+
+    public int GetAcid()
+    {
+        return acid;
+    }
+
+    public int GetUnoCard()
+    {
+        return unoReverseCard;
+    }
+
+    public int GetBlackHole()
+    {
+        return blackHoles;
+    }
 }

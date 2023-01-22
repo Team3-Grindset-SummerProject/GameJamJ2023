@@ -104,6 +104,34 @@ public class AddAcidCount : MonoBehaviour
             }
         }
     }
+
+    public void AcidTrapPlace()
+    {
+        if(AcidNum > 0)
+        {
+            AcidNum--;
+            AcidNumber.text = AcidNum.ToString();
+        }
+        
+    }
+
+    public void TimeTrapPlace()
+    {
+        if(TimeNum >0)
+        {
+            TimeNum--;
+            TimeNumber.text = TimeNum.ToString();
+        }
+    }
+
+    public void BLackHoleTrapPlace()
+    {
+        if(BlackHoleNum >0)
+        {
+            BlackHoleNum--;
+            BlackHoleNumber.text = BlackHoleNum.ToString();
+        }
+    }
    
 
 }

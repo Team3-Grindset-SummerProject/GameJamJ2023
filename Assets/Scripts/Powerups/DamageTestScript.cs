@@ -8,8 +8,10 @@ public class DamageTestScript : MonoBehaviour
     [SerializeField] private int slowSpeed = 0;
     private GameObject bigBadGuy = null;
     [SerializeField] private GameObject myself = null;
-    [SerializeField] private float xDistance = 0.5f;
-    [SerializeField] private float yDistance = 0.5f;
+    private float xDistance = 0;
+    private float yDistance = 0;
+    [SerializeField] private float effectDistancex = 0.5f;
+    [SerializeField] private float effectDistancey = 0.5f;
     [SerializeField] private bool isHurt = false;
     [SerializeField] private bool isGlue = false;
     //private float zDistance = 0;
@@ -26,7 +28,7 @@ public class DamageTestScript : MonoBehaviour
         yDistance = Mathf.Abs(transform.position.y - bigBadGuy.transform.position.y);
         //zDistance = Mathf.Abs(transform.position.z - bigBadGuy.transform.position.z);
 
-        if(xDistance <= 0.5 && yDistance <= 0.5)
+        if(xDistance <= effectDistancex && yDistance <= effectDistancey)
         {
 
             if (isGlue)

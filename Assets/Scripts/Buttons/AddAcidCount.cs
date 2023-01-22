@@ -24,9 +24,20 @@ public class AddAcidCount : MonoBehaviour
     public int TimeNum = 0;
     public int BlackHoleNum = 0;
 
-    private void Start()
+    public void Start()
     {
         playerTrap = GameObject.FindWithTag("Player").GetComponent<PlaceTrap>();
+        Pause();
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void Unpause()
+    {
+        Time.timeScale = 1;
     }
 
     public void AcidClicked()
@@ -117,7 +128,9 @@ public class AddAcidCount : MonoBehaviour
         if(AcidNum > 0)
         {
             playerTrap.currentTrap = acidTrap;
-            playerTrap.OnPlaceTrap();
+            
+            if (!playerTrap.OnPlaceTrap())
+                return;
             
             AcidNum--;
             AcidNumber.text = AcidNum.ToString();
@@ -130,7 +143,9 @@ public class AddAcidCount : MonoBehaviour
         if(TimeNum >0)
         {
             playerTrap.currentTrap = timeTrap;
-            playerTrap.OnPlaceTrap();
+            
+            if (!playerTrap.OnPlaceTrap())
+                return;
             
             TimeNum--;
             TimeNumber.text = TimeNum.ToString();
@@ -142,7 +157,10 @@ public class AddAcidCount : MonoBehaviour
         if(BlackHoleNum >0)
         {
             playerTrap.currentTrap = blackTrap;
-            playerTrap.OnPlaceTrap();
+
+            if (!playerTrap.OnPlaceTrap())
+                return;
+            
             
             BlackHoleNum--;
             BlackHoleNumber.text = BlackHoleNum.ToString();

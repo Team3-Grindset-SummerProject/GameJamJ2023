@@ -43,19 +43,21 @@ public class PlaceTrap : MonoBehaviour
         }
     }
 
-    public void OnPlaceTrap()
+    public bool OnPlaceTrap()
     {
         if (closestTrap == null)
-         return;
+         return false;
 
         if (closestTrap.trapPlaced)
-            return;
+            return false;
         
         if(!canPlaceTrap)
-            return;
+            return false;
 
         Instantiate(currentTrap, closestTrap.GetTrapPosition(), Quaternion.identity);
 
         closestTrap.trapPlaced = true;
+
+        return true;
     }
 }

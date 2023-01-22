@@ -565,6 +565,8 @@ MonoBehaviour:
   effectDistancey: 0.5
   isHurt: 1
   isGlue: 1
+  isPlayer: 0
+  blackScrene: {fileID: 0}
 --- !u!135 &588712114
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -653,6 +655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 591816218}
   - component: {fileID: 591816219}
+  - component: {fileID: 591816220}
   m_Layer: 0
   m_Name: PsudoPlayer
   m_TagString: Player
@@ -668,7 +671,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 591816217}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0, z: 0}
+  m_LocalPosition: {x: -17.62, y: 0.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -688,6 +691,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventorySpace: 15
+--- !u!114 &591816220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591816217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de223ed80131b1546aded54131a7b70d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  slowSpeed: 0
+  myself: {fileID: 591816217}
+  effectDistancex: 0.5
+  effectDistancey: 0.5
+  isHurt: 0
+  isGlue: 0
+  isPlayer: 0
+  blackScrene: {fileID: 0}
 --- !u!1 &595750356
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +916,8 @@ MonoBehaviour:
   effectDistancey: 0.5
   isHurt: 1
   isGlue: 0
+  isPlayer: 0
+  blackScrene: {fileID: 0}
 --- !u!135 &606052494
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1822,6 +1848,8 @@ MonoBehaviour:
   effectDistancey: 0.5
   isHurt: 1
   isGlue: 1
+  isPlayer: 0
+  blackScrene: {fileID: 0}
 --- !u!135 &1854767071
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1939,6 +1967,8 @@ MonoBehaviour:
   effectDistancey: 0.5
   isHurt: 1
   isGlue: 1
+  isPlayer: 0
+  blackScrene: {fileID: 0}
 --- !u!135 &1892990422
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2056,6 +2086,8 @@ MonoBehaviour:
   effectDistancey: 0.5
   isHurt: 0
   isGlue: 0
+  isPlayer: 0
+  blackScrene: {fileID: 0}
 --- !u!135 &1903199176
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2442,6 +2474,8 @@ MonoBehaviour:
   effectDistancey: 0.5
   isHurt: 1
   isGlue: 0
+  isPlayer: 0
+  blackScrene: {fileID: 0}
 --- !u!135 &2103205569
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2606,6 +2640,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796236060094897140, guid: fae1145e28f83944eb0c367bf03410d7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796236060094897140, guid: fae1145e28f83944eb0c367bf03410d7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796236060094897140, guid: fae1145e28f83944eb0c367bf03410d7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fae1145e28f83944eb0c367bf03410d7, type: 3}

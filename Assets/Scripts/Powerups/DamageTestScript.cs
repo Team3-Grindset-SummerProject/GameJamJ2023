@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DamageTestScript : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class DamageTestScript : MonoBehaviour
     [SerializeField] private float effectDistancey = 0.5f;
     [SerializeField] private bool isHurt = false;
     [SerializeField] private bool isGlue = false;
+    [SerializeField] private bool isPlayer = false;
+    [SerializeField] private GameObject blackScrene = null;
+    [SerializeField] private AudioSource monsterScreem = null;
     //private float zDistance = 0;
     // Start is called before the first frame update
     void Start()
@@ -40,7 +44,12 @@ public class DamageTestScript : MonoBehaviour
                 AttackBadGuy();
                 return;
             }
-            if(!isGlue && !isHurt)
+            if (isPlayer)
+            {
+                StartCoroutine(LoseGame());
+                return;
+            }
+            if(!isGlue && !isHurt && !isPlayer)
             {
                 ReverseBadGuy();
             }
@@ -71,5 +80,13 @@ public class DamageTestScript : MonoBehaviour
     {
         bigBadGuy.GetComponent<BigBadBehavior>().SlowEnemy(slowSpeed, 3.0f);
         Destroy(myself);
+    }
+
+    private IEnumerator LoseGame()
+    {
+        blackScrene.SetActive(true);
+        monsterScreem.Play();
+        yield return new WaitForSeconds(3.0f);
+        SceneManager.LoadScene("MainMenu");
     }
 }

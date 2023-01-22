@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 13275505}
   - component: {fileID: 13275504}
   - component: {fileID: 13275503}
-  - component: {fileID: 13275506}
   m_Layer: 5
   m_Name: AcidButton
   m_TagString: Untagged
@@ -231,9 +230,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 13275506}
+      - m_Target: {fileID: 872177047}
         m_TargetAssemblyTypeName: AddAcidCount, Assembly-CSharp
-        m_MethodName: ButtonClicked
+        m_MethodName: AcidClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -281,20 +280,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13275501}
   m_CullTransparentMesh: 1
---- !u!114 &13275506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13275501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 594d8e1dc70a8444f9ec064e2f9ec7cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WeightChange: {fileID: 1169660853}
-  number: 0
 --- !u!1 &186185776
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,6 +979,7 @@ GameObject:
   - component: {fileID: 872177041}
   - component: {fileID: 872177045}
   - component: {fileID: 872177046}
+  - component: {fileID: 872177047}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1114,6 +1100,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 0}
+--- !u!114 &872177047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872177040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594d8e1dc70a8444f9ec064e2f9ec7cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeightChange: {fileID: 1169660853}
 --- !u!1 &896680923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1486,6 +1485,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 872177047}
+        m_TargetAssemblyTypeName: AddAcidCount, Assembly-CSharp
+        m_MethodName: TimeClicked
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1909,6 +1920,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 872177047}
+        m_TargetAssemblyTypeName: AddAcidCount, Assembly-CSharp
+        m_MethodName: BlackHoleClicked
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

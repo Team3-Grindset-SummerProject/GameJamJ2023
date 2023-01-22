@@ -500,6 +500,7 @@ Transform:
   - {fileID: 272834253}
   - {fileID: 1682019406}
   - {fileID: 160512359}
+  - {fileID: 1965255588}
   m_Father: {fileID: 1609442619}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1651,7 +1652,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965255586}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 33a17b31d9728c744bce8baacc0f49e6, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: d0f9cb5362aec534b9ca0a743ab6ea0f, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -1683,13 +1684,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965255586}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 448.6931, y: 91.14371, z: 885.0405}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.429657, y: -101.85456, z: 886.06104}
+  m_LocalScale: {x: 1.0009222, y: 1.0009222, z: 1.0009222}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 467187473}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2049747385
 GameObject:

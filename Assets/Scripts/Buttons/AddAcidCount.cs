@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,23 +7,29 @@ using TMPro;
 
 public class AddAcidCount : MonoBehaviour
 {
-   public TextMeshProUGUI WeightChange;
+    public TextMeshProUGUI WeightChange;
 
     public TextMeshProUGUI AcidNumber;
     public TextMeshProUGUI TimeNumber;
     public TextMeshProUGUI BlackHoleNumber;
 
-   
+    [SerializeField] private PlaceTrap playerTrap;
+    [SerializeField] private GameObject acidTrap, timeTrap, blackTrap;
+    
 
-   public int number = 0;
+
+    public int number = 0;
 
     public int AcidNum = 0;
     public int TimeNum = 0;
     public int BlackHoleNum = 0;
 
-    
+    private void Start()
+    {
+        playerTrap = GameObject.FindWithTag("Player").GetComponent<PlaceTrap>();
+    }
 
-   public void AcidClicked()
+    public void AcidClicked()
    {
         if(number < 14)
         {
@@ -109,6 +116,9 @@ public class AddAcidCount : MonoBehaviour
     {
         if(AcidNum > 0)
         {
+            playerTrap.currentTrap = acidTrap;
+            playerTrap.OnPlaceTrap();
+            
             AcidNum--;
             AcidNumber.text = AcidNum.ToString();
         }
@@ -119,19 +129,23 @@ public class AddAcidCount : MonoBehaviour
     {
         if(TimeNum >0)
         {
+            playerTrap.currentTrap = timeTrap;
+            playerTrap.OnPlaceTrap();
+            
             TimeNum--;
             TimeNumber.text = TimeNum.ToString();
         }
     }
 
-    public void BLackHoleTrapPlace()
+    public void BlackHoleTrapPlace()
     {
         if(BlackHoleNum >0)
         {
+            playerTrap.currentTrap = blackTrap;
+            playerTrap.OnPlaceTrap();
+            
             BlackHoleNum--;
             BlackHoleNumber.text = BlackHoleNum.ToString();
         }
     }
-   
-
 }

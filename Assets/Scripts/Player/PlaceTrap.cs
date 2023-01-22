@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlaceTrap : MonoBehaviour
 {
     [SerializeField] private List<TrapZone> trapLocations;
-    [SerializeField] private GameObject currentTrap;
+    public GameObject currentTrap;
     [SerializeField] private bool canPlaceTrap;
     [SerializeField] private TrapZone closestTrap;
     

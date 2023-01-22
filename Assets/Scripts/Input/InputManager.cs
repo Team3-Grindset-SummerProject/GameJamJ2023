@@ -53,96 +53,6 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""PlaceTrap"",
-                    ""type"": ""Button"",
-                    ""id"": ""86a3625d-5748-4ee1-b1ac-c01965c1fa98"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""1"",
-                    ""type"": ""Button"",
-                    ""id"": ""b7889abd-a26a-4ab8-80da-42096b35650a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""2"",
-                    ""type"": ""Button"",
-                    ""id"": ""f5f65078-f4df-4040-908d-395925905a5c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""3"",
-                    ""type"": ""Button"",
-                    ""id"": ""13cb7e4c-5066-429c-820f-f3e043589697"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""4"",
-                    ""type"": ""Button"",
-                    ""id"": ""35759abc-b519-4879-a536-cf2bb0613895"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""5"",
-                    ""type"": ""Button"",
-                    ""id"": ""acf90332-deac-4b33-98dc-563492e18482"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""6"",
-                    ""type"": ""Button"",
-                    ""id"": ""ba713665-879e-4020-ad9b-8693b4ee889e"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""7"",
-                    ""type"": ""Button"",
-                    ""id"": ""f38e7a93-ab0d-4de4-8188-7c070b78f15d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""8"",
-                    ""type"": ""Button"",
-                    ""id"": ""3f1a84ad-9c40-493c-a3f6-7cf333ac1e4e"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""9"",
-                    ""type"": ""Button"",
-                    ""id"": ""856f8ace-edbe-4b9e-af64-357e0298ff96"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -299,127 +209,6 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""action"": ""JumpRelease"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""16e56dca-cf31-4046-aa5f-197c7fdb4f1f"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PlaceTrap"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4466db2a-8233-4526-9558-1d86e01dfdf6"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PlaceTrap"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""fe694005-9ca7-4fca-888e-f803420488ab"",
-                    ""path"": ""<Keyboard>/1"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""1"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9ca7803e-c638-4d58-8766-4850e18b7a71"",
-                    ""path"": ""<Keyboard>/2"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""2"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""dbe463d2-9449-480f-b676-5bbeb16cd508"",
-                    ""path"": ""<Keyboard>/3"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""3"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e3fd0dae-1494-4e13-8480-ef50ae05c0c4"",
-                    ""path"": ""<Keyboard>/4"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""4"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1f833e52-58b3-4567-b664-43c7d77f114c"",
-                    ""path"": ""<Keyboard>/5"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""5"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""779c10fb-65fb-4369-8949-1b353744697f"",
-                    ""path"": ""<Keyboard>/6"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""6"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""96f4486f-8ab0-4549-bcf0-30c282d89be0"",
-                    ""path"": ""<Keyboard>/7"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""7"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a9e8f248-fddc-4c48-834b-4e4947916a16"",
-                    ""path"": ""<Keyboard>/8"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""8"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8a9ed48c-583e-475b-b201-ec614c2a322f"",
-                    ""path"": ""<Keyboard>/9"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""9"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -431,16 +220,6 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         m_Active_Move = m_Active.FindAction("Move", throwIfNotFound: true);
         m_Active_Jump = m_Active.FindAction("Jump", throwIfNotFound: true);
         m_Active_JumpRelease = m_Active.FindAction("JumpRelease", throwIfNotFound: true);
-        m_Active_PlaceTrap = m_Active.FindAction("PlaceTrap", throwIfNotFound: true);
-        m_Active__1 = m_Active.FindAction("1", throwIfNotFound: true);
-        m_Active__2 = m_Active.FindAction("2", throwIfNotFound: true);
-        m_Active__3 = m_Active.FindAction("3", throwIfNotFound: true);
-        m_Active__4 = m_Active.FindAction("4", throwIfNotFound: true);
-        m_Active__5 = m_Active.FindAction("5", throwIfNotFound: true);
-        m_Active__6 = m_Active.FindAction("6", throwIfNotFound: true);
-        m_Active__7 = m_Active.FindAction("7", throwIfNotFound: true);
-        m_Active__8 = m_Active.FindAction("8", throwIfNotFound: true);
-        m_Active__9 = m_Active.FindAction("9", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -503,16 +282,6 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
     private readonly InputAction m_Active_Move;
     private readonly InputAction m_Active_Jump;
     private readonly InputAction m_Active_JumpRelease;
-    private readonly InputAction m_Active_PlaceTrap;
-    private readonly InputAction m_Active__1;
-    private readonly InputAction m_Active__2;
-    private readonly InputAction m_Active__3;
-    private readonly InputAction m_Active__4;
-    private readonly InputAction m_Active__5;
-    private readonly InputAction m_Active__6;
-    private readonly InputAction m_Active__7;
-    private readonly InputAction m_Active__8;
-    private readonly InputAction m_Active__9;
     public struct ActiveActions
     {
         private @InputManager m_Wrapper;
@@ -520,16 +289,6 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Active_Move;
         public InputAction @Jump => m_Wrapper.m_Active_Jump;
         public InputAction @JumpRelease => m_Wrapper.m_Active_JumpRelease;
-        public InputAction @PlaceTrap => m_Wrapper.m_Active_PlaceTrap;
-        public InputAction @_1 => m_Wrapper.m_Active__1;
-        public InputAction @_2 => m_Wrapper.m_Active__2;
-        public InputAction @_3 => m_Wrapper.m_Active__3;
-        public InputAction @_4 => m_Wrapper.m_Active__4;
-        public InputAction @_5 => m_Wrapper.m_Active__5;
-        public InputAction @_6 => m_Wrapper.m_Active__6;
-        public InputAction @_7 => m_Wrapper.m_Active__7;
-        public InputAction @_8 => m_Wrapper.m_Active__8;
-        public InputAction @_9 => m_Wrapper.m_Active__9;
         public InputActionMap Get() { return m_Wrapper.m_Active; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -548,36 +307,6 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                 @JumpRelease.started -= m_Wrapper.m_ActiveActionsCallbackInterface.OnJumpRelease;
                 @JumpRelease.performed -= m_Wrapper.m_ActiveActionsCallbackInterface.OnJumpRelease;
                 @JumpRelease.canceled -= m_Wrapper.m_ActiveActionsCallbackInterface.OnJumpRelease;
-                @PlaceTrap.started -= m_Wrapper.m_ActiveActionsCallbackInterface.OnPlaceTrap;
-                @PlaceTrap.performed -= m_Wrapper.m_ActiveActionsCallbackInterface.OnPlaceTrap;
-                @PlaceTrap.canceled -= m_Wrapper.m_ActiveActionsCallbackInterface.OnPlaceTrap;
-                @_1.started -= m_Wrapper.m_ActiveActionsCallbackInterface.On_1;
-                @_1.performed -= m_Wrapper.m_ActiveActionsCallbackInterface.On_1;
-                @_1.canceled -= m_Wrapper.m_ActiveActionsCallbackInterface.On_1;
-                @_2.started -= m_Wrapper.m_ActiveActionsCallbackInterface.On_2;
-                @_2.performed -= m_Wrapper.m_ActiveActionsCallbackInterface.On_2;
-                @_2.canceled -= m_Wrapper.m_ActiveActionsCallbackInterface.On_2;
-                @_3.started -= m_Wrapper.m_ActiveActionsCallbackInterface.On_3;
-                @_3.performed -= m_Wrapper.m_ActiveActionsCallbackInterface.On_3;
-                @_3.canceled -= m_Wrapper.m_ActiveActionsCallbackInterface.On_3;
-                @_4.started -= m_Wrapper.m_ActiveActionsCallbackInterface.On_4;
-                @_4.performed -= m_Wrapper.m_ActiveActionsCallbackInterface.On_4;
-                @_4.canceled -= m_Wrapper.m_ActiveActionsCallbackInterface.On_4;
-                @_5.started -= m_Wrapper.m_ActiveActionsCallbackInterface.On_5;
-                @_5.performed -= m_Wrapper.m_ActiveActionsCallbackInterface.On_5;
-                @_5.canceled -= m_Wrapper.m_ActiveActionsCallbackInterface.On_5;
-                @_6.started -= m_Wrapper.m_ActiveActionsCallbackInterface.On_6;
-                @_6.performed -= m_Wrapper.m_ActiveActionsCallbackInterface.On_6;
-                @_6.canceled -= m_Wrapper.m_ActiveActionsCallbackInterface.On_6;
-                @_7.started -= m_Wrapper.m_ActiveActionsCallbackInterface.On_7;
-                @_7.performed -= m_Wrapper.m_ActiveActionsCallbackInterface.On_7;
-                @_7.canceled -= m_Wrapper.m_ActiveActionsCallbackInterface.On_7;
-                @_8.started -= m_Wrapper.m_ActiveActionsCallbackInterface.On_8;
-                @_8.performed -= m_Wrapper.m_ActiveActionsCallbackInterface.On_8;
-                @_8.canceled -= m_Wrapper.m_ActiveActionsCallbackInterface.On_8;
-                @_9.started -= m_Wrapper.m_ActiveActionsCallbackInterface.On_9;
-                @_9.performed -= m_Wrapper.m_ActiveActionsCallbackInterface.On_9;
-                @_9.canceled -= m_Wrapper.m_ActiveActionsCallbackInterface.On_9;
             }
             m_Wrapper.m_ActiveActionsCallbackInterface = instance;
             if (instance != null)
@@ -591,36 +320,6 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                 @JumpRelease.started += instance.OnJumpRelease;
                 @JumpRelease.performed += instance.OnJumpRelease;
                 @JumpRelease.canceled += instance.OnJumpRelease;
-                @PlaceTrap.started += instance.OnPlaceTrap;
-                @PlaceTrap.performed += instance.OnPlaceTrap;
-                @PlaceTrap.canceled += instance.OnPlaceTrap;
-                @_1.started += instance.On_1;
-                @_1.performed += instance.On_1;
-                @_1.canceled += instance.On_1;
-                @_2.started += instance.On_2;
-                @_2.performed += instance.On_2;
-                @_2.canceled += instance.On_2;
-                @_3.started += instance.On_3;
-                @_3.performed += instance.On_3;
-                @_3.canceled += instance.On_3;
-                @_4.started += instance.On_4;
-                @_4.performed += instance.On_4;
-                @_4.canceled += instance.On_4;
-                @_5.started += instance.On_5;
-                @_5.performed += instance.On_5;
-                @_5.canceled += instance.On_5;
-                @_6.started += instance.On_6;
-                @_6.performed += instance.On_6;
-                @_6.canceled += instance.On_6;
-                @_7.started += instance.On_7;
-                @_7.performed += instance.On_7;
-                @_7.canceled += instance.On_7;
-                @_8.started += instance.On_8;
-                @_8.performed += instance.On_8;
-                @_8.canceled += instance.On_8;
-                @_9.started += instance.On_9;
-                @_9.performed += instance.On_9;
-                @_9.canceled += instance.On_9;
             }
         }
     }
@@ -630,15 +329,5 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnJumpRelease(InputAction.CallbackContext context);
-        void OnPlaceTrap(InputAction.CallbackContext context);
-        void On_1(InputAction.CallbackContext context);
-        void On_2(InputAction.CallbackContext context);
-        void On_3(InputAction.CallbackContext context);
-        void On_4(InputAction.CallbackContext context);
-        void On_5(InputAction.CallbackContext context);
-        void On_6(InputAction.CallbackContext context);
-        void On_7(InputAction.CallbackContext context);
-        void On_8(InputAction.CallbackContext context);
-        void On_9(InputAction.CallbackContext context);
     }
 }

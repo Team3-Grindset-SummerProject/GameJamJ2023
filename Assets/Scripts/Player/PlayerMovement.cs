@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
     private bool _canWallJump;
     private bool _wallJumpEnabled;
     private bool _hasWallJumped;
+    private float _wallTime;
 
     private void Start()
     {
@@ -128,10 +129,16 @@ public class PlayerMovement : MonoBehaviour
         {
             playerSprite.flipX = true;
         }
+
+        if (playerState == PlayerState.Clinging)
+            _wallTime += Time.deltaTime;
+        else
+            _wallTime = 0.0f;
         
         playerAnimator.SetBool("Moving", moveInput.x != 0);
         playerAnimator.SetBool("Grounded", playerState == PlayerState.Grounded);
         playerAnimator.SetFloat("YVelocity", velocity.y);
+        playerAnimator.SetFloat("WallTime", _wallTime);
     }
 
     private void CheckWall()

@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Material_Trap_TimeMachine
+  m_Name: Mat_Trap_TimeMachine
   m_Shader: {fileID: -6465566751694194690, guid: 14e3e622db28c5a43b0854246bf6226d,
     type: 3}
   m_ValidKeywords: []

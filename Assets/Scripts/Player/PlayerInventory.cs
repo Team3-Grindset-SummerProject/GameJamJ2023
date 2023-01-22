@@ -29,7 +29,7 @@ public class PlayerInventory : MonoBehaviour
         int itemWeight = 1;
         if(itemName.Equals("acid"))
         {
-            itemWeight = 1;
+            itemWeight = 2;
         }
         if (itemName.Equals("laserGun"))
         {

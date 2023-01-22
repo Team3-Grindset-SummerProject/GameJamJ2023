@@ -18,7 +18,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerState playerState;
     
     [Space] [Header("Objects")] [SerializeField] private Rigidbody rb;
-    [SerializeField] private Transform groundCheckPosition;
+    [SerializeField] private Transform groundCheckPositionL;
+    [SerializeField] private Transform groundCheckPositionR;
     [SerializeField] private Transform wallCheckPosition;
     [SerializeField] private Transform ceilingCheckPosition;
     [SerializeField] private SpriteRenderer playerSprite;
@@ -27,8 +28,6 @@ public class PlayerMovement : MonoBehaviour
     [Space] [Header("Velocity")] [SerializeField] private Vector2 velocity;
     [SerializeField] private float horizontalVelocityImpulse;
     [SerializeField] private Vector2 moveInput;
-    
-    
     
     [Space] [Header("Movement Speed : Lerp is acceleration")] [SerializeField] private float moveSpeed;
     [Tooltip("Fields Labeled as 'Lerp', are used to control how quickly speed ramps up and down," +
@@ -71,7 +70,8 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = tempVelocity + new Vector2(horizontalVelocityImpulse, 0f);
 
         RaycastHit groundHit;
-        if (Physics.Raycast(groundCheckPosition.position, transform.TransformDirection(Vector3.down), out groundHit, groundCheckMaxDistance))
+        if (Physics.Raycast(groundCheckPositionL.position, transform.TransformDirection(Vector3.down), out groundHit, groundCheckMaxDistance)
+            || Physics.Raycast(groundCheckPositionR.position, transform.TransformDirection(Vector3.down), out groundHit, groundCheckMaxDistance))
         {
             if (velocity.y < 0)
             {

@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 2097775668366863141}
   - component: {fileID: 2097775668366863161}
   - component: {fileID: 3751049011922764386}
+  - component: {fileID: 7427634249101717685}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -341,10 +342,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trapLocations: []
-  currentTrap: {fileID: 7354508097229367454, guid: b25c88fd6fdc9de4888c5b3c591b9708,
+  currentTrap: {fileID: 865836903000595185, guid: 72b92aeb1093d964683ed49e36cd5fa2,
     type: 3}
   canPlaceTrap: 0
   closestTrap: {fileID: 0}
+--- !u!114 &7427634249101717685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097775668366863140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55dcd321a75b37a4189fb6c2d9b2ac55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventorySpace: 20
 --- !u!1 &2097775668493952677
 GameObject:
   m_ObjectHideFlags: 0

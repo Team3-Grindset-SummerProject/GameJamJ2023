@@ -8,11 +8,12 @@ public class Trap : MonoBehaviour
     [SerializeField] private BigBadBehavior enemy;
     [SerializeField] private GameObject activationObject;
 
-    [SerializeField] private bool isActive;
+    [SerializeField] private bool isActive, used;
 
     [SerializeField] private float range;
     [SerializeField] private int damage, slow;
     [SerializeField] private float slowTime;
+    [SerializeField] private bool reverse;
 
     private void Start()
     {
@@ -21,18 +22,27 @@ public class Trap : MonoBehaviour
 
     private void Update()
     {
-        if (isActive)
-            if (Vector3.Distance(transform.position, enemy.transform.position) <= range)
-            {
-                enemy.SlowEnemy(slow, slowTime);
-                enemy.HurtEnemy(damage, false);
+        if (!isActive) return;
+        
+        if (Vector3.Distance(transform.position, enemy.transform.position) <= range)
+        {
+            enemy.SlowEnemy(slow, slowTime);
+            enemy.HurtEnemy(damage, false);
 
-                isActive = false;
-            }
+            if (reverse)
+                StartCoroutine(enemy.EnemyReversal());
+
+            isActive = false;
+
+            used = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if (used)
+            return;
+        
         if (other.CompareTag("Player"))
         {
             isActive = true;

@@ -9,13 +9,19 @@ public class BigBadBehavior : MonoBehaviour
     private GameObject player = null;
     [SerializeField] private NavMeshAgent agent = null;
     [SerializeField] private GameObject reversePoint = null;
-    
+
+    [SerializeField] private AudioSource startScream = null;
+    [SerializeField] private AudioSource moveNoise = null;
+    [SerializeField] private AudioSource trapNoise = null;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         enemySpeed = enemyBaseSpeed;
 
         transform.position = reversePoint.transform.position;
+        startScream.Play();
+        StartCoroutine(EnemyWalkNoiseSmooth());
     }
 
     void Update()
@@ -26,6 +32,7 @@ public class BigBadBehavior : MonoBehaviour
 
     public void SlowEnemy (int slowStrength, float slowTime)
     {
+        trapNoise.Play();
         enemySpeed -= slowStrength;
         StartCoroutine(EnemySlowLegnth(slowTime));
     }
@@ -38,6 +45,7 @@ public class BigBadBehavior : MonoBehaviour
 
     public void HurtEnemy(int damage, bool shouldSlow)
     {
+        trapNoise.Play();
         health -= damage;
         if(health <= 0)
         {
@@ -56,5 +64,12 @@ public class BigBadBehavior : MonoBehaviour
         player = reversePoint;
         yield return new WaitForSeconds(2.0f);
         player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private IEnumerator EnemyWalkNoiseSmooth()
+    {
+        moveNoise.Play();
+        yield return new WaitForSeconds(3.0f);
+        StartCoroutine(EnemyWalkNoiseSmooth());
     }
 }

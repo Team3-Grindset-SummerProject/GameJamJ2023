@@ -526,6 +526,12 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!82 &537265193 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 537265193, guid: fae1145e28f83944eb0c367bf03410d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 771204123970226243}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &588712112
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,6 +573,7 @@ MonoBehaviour:
   isGlue: 1
   isPlayer: 0
   blackScrene: {fileID: 0}
+  monsterScreem: {fileID: 0}
 --- !u!135 &588712114
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -710,8 +717,9 @@ MonoBehaviour:
   effectDistancey: 0.5
   isHurt: 0
   isGlue: 0
-  isPlayer: 0
-  blackScrene: {fileID: 0}
+  isPlayer: 1
+  blackScrene: {fileID: 1762513648}
+  monsterScreem: {fileID: 537265193}
 --- !u!1 &595750356
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,6 +926,7 @@ MonoBehaviour:
   isGlue: 0
   isPlayer: 0
   blackScrene: {fileID: 0}
+  monsterScreem: {fileID: 0}
 --- !u!135 &606052494
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1850,6 +1859,7 @@ MonoBehaviour:
   isGlue: 1
   isPlayer: 0
   blackScrene: {fileID: 0}
+  monsterScreem: {fileID: 0}
 --- !u!135 &1854767071
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1969,6 +1979,7 @@ MonoBehaviour:
   isGlue: 1
   isPlayer: 0
   blackScrene: {fileID: 0}
+  monsterScreem: {fileID: 0}
 --- !u!135 &1892990422
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2088,6 +2099,7 @@ MonoBehaviour:
   isGlue: 0
   isPlayer: 0
   blackScrene: {fileID: 0}
+  monsterScreem: {fileID: 0}
 --- !u!135 &1903199176
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2476,6 +2488,7 @@ MonoBehaviour:
   isGlue: 0
   isPlayer: 0
   blackScrene: {fileID: 0}
+  monsterScreem: {fileID: 0}
 --- !u!135 &2103205569
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2618,43 +2631,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 771204124417428417, guid: fae1145e28f83944eb0c367bf03410d7,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 771204124417428417, guid: fae1145e28f83944eb0c367bf03410d7,
-        type: 3}
       propertyPath: reversePoint
       value: 
       objectReference: {fileID: 595750356}
-    - target: {fileID: 771204124417428418, guid: fae1145e28f83944eb0c367bf03410d7,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 771204124417428419, guid: fae1145e28f83944eb0c367bf03410d7,
         type: 3}
       propertyPath: m_Name
       value: BadGuy
-      objectReference: {fileID: 0}
-    - target: {fileID: 771204124417428419, guid: fae1145e28f83944eb0c367bf03410d7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1796236060094897140, guid: fae1145e28f83944eb0c367bf03410d7,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1796236060094897140, guid: fae1145e28f83944eb0c367bf03410d7,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1796236060094897140, guid: fae1145e28f83944eb0c367bf03410d7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fae1145e28f83944eb0c367bf03410d7, type: 3}

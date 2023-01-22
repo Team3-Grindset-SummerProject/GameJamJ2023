@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MAT_SpaceCrate
+  m_Name: Mat_SpaceCrate
   m_Shader: {fileID: -6465566751694194690, guid: 53fcb0d70515153479849ef13e1089d2,
     type: 3}
   m_ValidKeywords: []

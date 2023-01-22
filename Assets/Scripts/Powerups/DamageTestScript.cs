@@ -8,8 +8,8 @@ public class DamageTestScript : MonoBehaviour
     [SerializeField] private int slowSpeed = 0;
     private GameObject bigBadGuy = null;
     [SerializeField] private GameObject myself = null;
-    private float xDistance = 0;
-    private float yDistance = 0;
+    [SerializeField] private float xDistance = 0.5f;
+    [SerializeField] private float yDistance = 0.5f;
     [SerializeField] private bool isHurt = false;
     [SerializeField] private bool isGlue = false;
     //private float zDistance = 0;

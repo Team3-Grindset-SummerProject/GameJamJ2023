@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerMovement : MonoBehaviour
@@ -25,6 +26,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform ceilingCheckPosition;
     [SerializeField] private SpriteRenderer playerSprite;
     [SerializeField] private Animator playerAnimator;
+    [SerializeField] private GameObject trailRenderObject;
+
+    [Space] [Header("Particles")] [SerializeField]
+    private GameObject lightningParticle;
     
     [Space] [Header("Velocity")] [SerializeField] private Vector2 velocity;
     [SerializeField] private float horizontalVelocityImpulse;
@@ -35,13 +40,11 @@ public class PlayerMovement : MonoBehaviour
              " i.e acceleration. ")] 
     [SerializeField] private float moveLerp;
     [SerializeField] private float impulseLerp;
-    
+
     [Space] [Header("Jumping")] [SerializeField] private float jumpForce;
     [SerializeField] private float gravity;
     [SerializeField] private float groundCheckMaxDistance;
-    private bool _jumpReleaseAvailable;
-    private bool _secondJumpAvailable;
-    private bool _secondJumpConsumed;
+   
 
     [Space] [Header("Wall Jumping")] [SerializeField] private float wallJumpForce;
     [SerializeField] private float wallMoveSpeed;
@@ -50,22 +53,28 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float maxWallDistance;
     [SerializeField] private bool wallCheckDisableInvoked;
 
-    private float _wallDirection;
-    private bool _canWallJump;
-    private bool _wallJumpEnabled;
-    private bool _hasWallJumped;
-    private float _wallTime;
+    [SerializeField] [Space] [Header("Technical Data")] private float prevDir;
+    [SerializeField] private bool jumpReleaseAvailable;
+    [SerializeField] private bool secondJumpAvailable;
+    [SerializeField] private bool secondJumpConsumed;
+    [SerializeField] private float wallDirection;
+    [SerializeField] private bool canWallJump;
+    [SerializeField] private bool wallJumpEnabled;
+    [SerializeField] private bool hasWallJumped;
+    [SerializeField] private float wallTime;
 
     private void Start()
     {
-        _wallJumpEnabled = true;
+        wallJumpEnabled = true;
+        StartCoroutine(WallLightningEffect());
+        StartCoroutine(RunLightningEffect());
     }
 
     private void Update()
     {
         velocity.x = ((playerState == PlayerState.Clinging ? wallMoveSpeed : moveSpeed) * moveInput.x) * Time.deltaTime;
 
-        if (_hasWallJumped && Math.Abs(moveInput.x - (-_wallDirection)) < 0.1)
+        if (hasWallJumped && Math.Abs(moveInput.x - (-wallDirection)) < 0.1)
         {
             velocity.x *= 0.2f;
         }
@@ -86,10 +95,10 @@ public class PlayerMovement : MonoBehaviour
                 playerState = PlayerState.Grounded;
                 velocity.y = -0.01f;
 
-                _jumpReleaseAvailable = false;
+                jumpReleaseAvailable = false;
 
-                _secondJumpAvailable = false;
-                _secondJumpConsumed = false;
+                secondJumpAvailable = false;
+                secondJumpConsumed = false;
             }
         }
         else if (playerState != PlayerState.Clinging)
@@ -110,10 +119,26 @@ public class PlayerMovement : MonoBehaviour
 
         // Gravity.
         if (playerState == PlayerState.Airborne)
+        {
             velocity.y += gravity * Time.deltaTime;
 
+            if (velocity.y < 0)
+            {
+                trailRenderObject.SetActive(true);
+            }
+        }
+        else
+            trailRenderObject.SetActive(false);
+        
         if (playerState == PlayerState.Clinging)
+        {
+            wallTime += Time.deltaTime;
             velocity.y += wallGravity * Time.deltaTime;
+            secondJumpAvailable = false;
+        }
+        else
+            wallTime = 0.0f;
+
 
         // Animation.
 
@@ -126,21 +151,16 @@ public class PlayerMovement : MonoBehaviour
         {
             playerSprite.flipX = true;
         }
-
-        if (playerState == PlayerState.Clinging)
-            _wallTime += Time.deltaTime;
-        else
-            _wallTime = 0.0f;
         
         playerAnimator.SetBool("Moving", moveInput.x != 0);
         playerAnimator.SetBool("Grounded", playerState == PlayerState.Grounded);
         playerAnimator.SetFloat("YVelocity", velocity.y);
-        playerAnimator.SetFloat("WallTime", _wallTime);
+        playerAnimator.SetFloat("WallTime", wallTime);
     }
 
     private void CheckWall()
     {
-        if (!_wallJumpEnabled)
+        if (!wallJumpEnabled)
             return;
         
         if (playerState == PlayerState.Grounded)
@@ -149,12 +169,12 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit wallHit;
         if (Physics.Raycast(wallCheckPosition.position, new Vector3(moveInput.x, 0, 0), out wallHit, maxWallDistance))
         {
-            if (!_canWallJump)
+            if (!canWallJump)
             {
-                _wallDirection = moveInput.x;
+                wallDirection = moveInput.x;
                 wallJumpDirection = new Vector2(wallJumpDirection.x, wallJumpDirection.y);
 
-                _canWallJump = true;
+                canWallJump = true;
 
                 if (velocity.y > 0.1f)
                     velocity.y = 0.0f;
@@ -162,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
             
             playerState = PlayerState.Clinging;
         }
-        else if (_canWallJump && !wallCheckDisableInvoked)
+        else if (canWallJump && !wallCheckDisableInvoked)
         {
             Invoke(nameof(DisableWallJump), 0.2f);
             wallCheckDisableInvoked = true;
@@ -173,13 +193,18 @@ public class PlayerMovement : MonoBehaviour
     private void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+
+        if (Mathf.Abs(moveInput.x) > 0)
+        {
+            prevDir = moveInput.x;
+        }
     }
 
     private void OnJump()
     {
-        if (playerState == PlayerState.Grounded || (_secondJumpAvailable && playerState != PlayerState.Clinging))
+        if (playerState == PlayerState.Grounded || (secondJumpAvailable && playerState != PlayerState.Clinging))
         {
-            if (!_secondJumpConsumed)
+            if (!secondJumpConsumed && !canWallJump)
             {
                 velocity.y += jumpForce;
 
@@ -188,21 +213,31 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 velocity.y = jumpForce;
+                
+                GameObject lightning = Instantiate(lightningParticle, ceilingCheckPosition.position + new Vector3(prevDir > 0 ? -0.15f : 0.15f, 0, -0.3f), 
+                    Quaternion.Euler(new Vector3(0, 0, prevDir > 0 ? -120f : -60f)));
+                
+                GameObject lightning2 = Instantiate(lightningParticle, ceilingCheckPosition.position + new Vector3(prevDir > 0 ? 0.15f : -0.15f, 0, -0.3f), 
+                    Quaternion.Euler(new Vector3(0, 0, prevDir > 0 ? -120f : -60f)));
+
+                lightning.transform.localScale = new Vector3(0.15f, 0.3f, 0.1f);
+                lightning2.transform.localScale = new Vector3(0.15f, 0.3f, 0.1f);
             }
             
-            _secondJumpAvailable = false;
+            secondJumpAvailable = false;
             
             Invoke(nameof(EnableJumpRelease), 0.1f);
         }
 
-        if (_canWallJump)
+        if (canWallJump)
         {
             velocity.y = wallJumpDirection.y * wallJumpForce;
-            horizontalVelocityImpulse += (wallJumpDirection.x * -_wallDirection) * wallJumpForce;
+            horizontalVelocityImpulse += (wallJumpDirection.x * -wallDirection) * wallJumpForce;
             
-            _wallJumpEnabled = false;
-            _canWallJump = false;
-            _hasWallJumped = true;
+            wallJumpEnabled = false;
+            canWallJump = false;
+            hasWallJumped = true;
+            secondJumpAvailable = false;
             
             playerState = PlayerState.Airborne;
             
@@ -214,41 +249,87 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnJumpRelease(InputValue value)
     {
-        if (_secondJumpConsumed)
+        if (secondJumpConsumed)
             return;;
         
-        if (value.Get<float>() == 0 && _jumpReleaseAvailable && velocity.y > 0.1f)
+        if (value.Get<float>() == 0 && jumpReleaseAvailable && velocity.y > 0.1f)
         {
             velocity.y = 0.1f;
 
-            _jumpReleaseAvailable = false;
+            jumpReleaseAvailable = false;
         }
     }
 
     private void EndWallJump()
     {
-        _hasWallJumped = false;
+        hasWallJumped = false;
     }
 
     private void EnableJumpRelease()
     {
-        _jumpReleaseAvailable = true;
+        jumpReleaseAvailable = true;
     }
 
     private void DisableWallJump()
     {
-        _canWallJump = false;
+        canWallJump = false;
         wallCheckDisableInvoked = false;
     }
 
     private void EnableWallJump()
     {
-        _wallJumpEnabled = true;
+        wallJumpEnabled = true;
     }
 
     private void EnableSecondJump()
     {
-        _secondJumpAvailable = true;
-        _secondJumpConsumed = true;
+        secondJumpAvailable = true;
+        secondJumpConsumed = true;
+    }
+
+    private IEnumerator WallLightningEffect()
+    {
+        while (true)
+        {
+            if (playerState == PlayerState.Clinging)
+            {
+                GameObject lightning1 = Instantiate(lightningParticle,
+                    transform.position + new Vector3(wallDirection * 0.6f, 0.75f, -0.25f),
+                    Quaternion.Euler(new Vector3(0f, 0f, 270f)));
+
+                GameObject lightning2 = Instantiate(lightningParticle,
+                    transform.position + new Vector3(wallDirection * 0.6f, 1f, -0.25f),
+                    Quaternion.Euler(new Vector3(0f, 0f, 90f)));
+
+                lightning1.transform.localScale = new Vector3(0.06f, 0.25f, 0.1f);
+                lightning2.transform.localScale = new Vector3(0.06f, 0.25f, 0.1f);
+                yield return new WaitForSeconds(0.1f);
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.25f);
+            }
+        }
+    }
+
+    private IEnumerator RunLightningEffect()
+    {
+        while (true)
+        {
+            if (playerState == PlayerState.Grounded && velocity.x != 0)
+            {
+                GameObject lightning1 = Instantiate(lightningParticle,
+                    transform.position + new Vector3(0f, 0.1f, -0.25f),
+                    Quaternion.Euler(new Vector3(0f, 0f, prevDir < 0f ? 180f : 0f)));
+
+                lightning1.transform.localScale = new Vector3(0.015f, 0.27f, 0.1f);
+                
+                yield return new WaitForSeconds(0.25f);
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.25f);
+            }
+        }
     }
 }

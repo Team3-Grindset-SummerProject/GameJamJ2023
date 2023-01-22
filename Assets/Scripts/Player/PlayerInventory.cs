@@ -11,9 +11,9 @@ public class PlayerInventory : MonoBehaviour
     private int unoReverseCard = 0;
     private int glue = 0;
     private int acid = 0;
-    private int heavyItems = 7;
-    private int mediumItems = 4;
-    private int lightItems = 1;
+    private int heavyItems = 0;
+    private int mediumItems = 0;
+    private int lightItems = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +48,7 @@ public class PlayerInventory : MonoBehaviour
         }
         if (itemName.Equals("acid"))
         {
-            if(lightItems > 7)
+            if(lightItems >= 7)
             {
                 return;
             }
@@ -58,17 +58,18 @@ public class PlayerInventory : MonoBehaviour
         }
         if (itemName.Equals("glue"))
         {
-            if (lightItems > 7)
+            if (lightItems >= 7)
             {
                 return;
             }
             inventorySpace -= itemWeight;
             glue++;
             lightItems++;
+
         }
         if (itemName.Equals("laserGun"))
         {
-            if (mediumItems > 4)
+            if (mediumItems >= 4)
             {
                 return;
             }
@@ -78,7 +79,7 @@ public class PlayerInventory : MonoBehaviour
         }
         if (itemName.Equals("unoCard"))
         {
-            if (mediumItems > 4)
+            if (mediumItems >= 4)
             {
                 return;
             }
@@ -88,7 +89,7 @@ public class PlayerInventory : MonoBehaviour
         }
         if (itemName.Equals("blackHole"))
         {
-            if (heavyItems > 2)
+            if (heavyItems >= 2)
             {
                 return;
             }
@@ -98,7 +99,7 @@ public class PlayerInventory : MonoBehaviour
         }
         if (itemName.Equals("NED"))
         {
-            if (heavyItems > 2)
+            if (heavyItems >= 2)
             {
                 return;
             }

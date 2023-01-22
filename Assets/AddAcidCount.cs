@@ -7,7 +7,7 @@ using TMPro;
 public class AddAcidCount : MonoBehaviour
 {
    public TextMeshProUGUI WeightChange;
-   private int number = 0;
+   public int number = 0;
 
    public void AcidClicked()
    {
@@ -31,7 +31,7 @@ public class AddAcidCount : MonoBehaviour
     public void BlackHoleClicked()
     {
         
-        if(number < 13)
+        if(number < 9)
         {
              number += 7;
          WeightChange.text = number.ToString();

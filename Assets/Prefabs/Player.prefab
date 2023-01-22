@@ -62,6 +62,7 @@ MonoBehaviour:
   velocity: {x: 0, y: -0.01}
   horizontalVelocityImpulse: 0
   moveInput: {x: 0, y: 0}
+  prevDir: 1
   moveSpeed: 6
   moveLerp: 15
   impulseLerp: 15
@@ -277,7 +278,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1387426185, guid: 204032bb1b47bba4aaf171c04ae156a9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e671eca5729c8ed49ac0a100fd892d17, type: 3}
   m_Color: {r: 0.83347183, g: 1, b: 0.8160377, a: 1}
   m_FlipX: 0
   m_FlipY: 0

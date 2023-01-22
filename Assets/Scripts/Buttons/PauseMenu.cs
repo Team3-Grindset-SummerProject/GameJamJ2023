@@ -7,7 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
    public static bool GameIsPaused = false;
 
-   public GameObject pauseMenuUI;
+    public GameObject pauseMenuUI;
 
    void Update(){
         if (Input.GetKeyDown(KeyCode.Escape)){
@@ -19,20 +19,23 @@ public class PauseMenu : MonoBehaviour
         }
    }
 
-   public void Resume(){
+   public void Resume()
+   {
     
-    pauseMenuUI.SetActive(false);
-    Time.timeScale = 1f;
-    GameIsPaused = false;
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
    }
 
-   void Pause(){
-    pauseMenuUI.SetActive(true);
-    Time.timeScale = 0f;
-    GameIsPaused = true;
+   void Pause()
+   {
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        GameIsPaused = true;
    }
 
-    public void LoadMenu(){
+    public void LoadMenu()
+    {
         Time.timeScale = 1f;
        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
 

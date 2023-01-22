@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerMovement : MonoBehaviour
@@ -27,6 +28,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private SpriteRenderer playerSprite;
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private GameObject trailRenderObject;
+    
+    [Space] [Header("Audio")] [SerializeField] private AudioManager audioManager;
+    [SerializeField] private AudioClip jump, fall, footstep, slideNormal, doubleJump;
 
     [Space] [Header("Particles")] [SerializeField]
     private GameObject lightningParticle;
@@ -74,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
         wallJumpEnabled = true;
         StartCoroutine(WallLightningEffect());
         StartCoroutine(RunLightningEffect());
+        StartCoroutine(WallClingSound());
     }
 
     private void Update()
@@ -94,6 +99,9 @@ public class PlayerMovement : MonoBehaviour
         {
             if (velocity.y < 0)
             {
+                if (playerState == PlayerState.Airborne)
+                    audioManager.AddSoundToQueue(fall, false, 0.35f);
+                
                 playerState = PlayerState.Grounded;
                 velocity.y = -0.01f;
 
@@ -216,6 +224,8 @@ public class PlayerMovement : MonoBehaviour
             if (!secondJumpConsumed && !canWallJump)
             {
                 velocity.y += jumpForce;
+                
+                audioManager.AddSoundToQueue(jump, false, 0.3f);
 
                 Invoke(nameof(EnableSecondJump), 0.3f);
             }
@@ -231,6 +241,8 @@ public class PlayerMovement : MonoBehaviour
 
                 lightning.transform.localScale = new Vector3(0.15f, 0.1f, 0.1f);
                 lightning2.transform.localScale = new Vector3(0.15f, 0.1f, 0.1f);
+                
+                audioManager.AddSoundToQueue(doubleJump, false, 0.25f);
             }
             
             secondJumpAvailable = false;
@@ -253,6 +265,8 @@ public class PlayerMovement : MonoBehaviour
             Invoke(nameof(EnableWallJump), 0.25f);
             Invoke(nameof(EndWallJump), 0.25f);
             Invoke(nameof(EnableSecondJump), 0.3f);
+            
+            audioManager.AddSoundToQueue(doubleJump, false, 0.15f);
         }
     }
 
@@ -321,6 +335,22 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private IEnumerator WallClingSound()
+    {
+        while (true)
+        {
+            if (playerState == PlayerState.Clinging && wallTime > 0.35f)
+            {
+                audioManager.AddSoundToQueue(slideNormal, false, 0.05f + (wallTime / 12.5f));
+                yield return new WaitForSeconds(1.0f);
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.25f);
+            }
+        }
+    }
+
     private IEnumerator RunLightningEffect()
     {
         while (true)
@@ -332,6 +362,9 @@ public class PlayerMovement : MonoBehaviour
                     Quaternion.Euler(new Vector3(0f, 0f, prevDir < 0f ? 180f : 0f)));
 
                 lightning1.transform.localScale = new Vector3(0.015f, 0.075f, 0.1f);
+
+                float randVolume = Random.Range(0.08f, 0.225f);
+                audioManager.AddSoundToQueue(footstep, false, 0.08f + randVolume);
                 
                 yield return new WaitForSeconds(0.25f);
             }

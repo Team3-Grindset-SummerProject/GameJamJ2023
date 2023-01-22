@@ -44,6 +44,20 @@ public class AudioManager : MonoBehaviour
         return new AudioSource();
     }
 
+    public void StopAudioOfType(AudioClip clip)
+    {
+        if (soundsPlaying == null)
+            return;
+        
+        foreach (var source in soundsPlaying)
+        {
+            if (source.audioSource.clip == clip)
+            {
+                source.audioSource.Stop();
+            }
+        }
+    }
+
     public void AddSoundToQueue(AudioClip clip, bool loop, float volume)
     {
         soundQueue.Add(new AudioClipper(clip, loop, volume));

@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 3751049011922764386}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,6 +240,7 @@ MonoBehaviour:
   fall: {fileID: 8300000, guid: 389cf80372826f243abd6fe1f76f4703, type: 3}
   footstep: {fileID: 8300000, guid: ba8705866e928ac4587a8a41087d0aa5, type: 3}
   slideNormal: {fileID: 8300000, guid: 63891a56602ebd846a4eb9bc556e172b, type: 3}
+  slideElectric: {fileID: 8300000, guid: d33deb29f210eea4abf5af7997970423, type: 3}
   doubleJump: {fileID: 8300000, guid: fd03fb891184386409771a2ab28e7c1a, type: 3}
   lightningParticle: {fileID: 6184334971821865193, guid: 3cb7620e646f47943bbcfc6f018abb5f,
     type: 3}
@@ -340,7 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trapLocations: []
-  currentTrap: {fileID: 2225234049145361190, guid: fda4f5fd6996c8f4781b34ab1938a18b,
+  currentTrap: {fileID: 7354508097229367454, guid: b25c88fd6fdc9de4888c5b3c591b9708,
     type: 3}
   canPlaceTrap: 0
   closestTrap: {fileID: 0}

@@ -48,6 +48,7 @@ public class DamageTestScript : MonoBehaviour
 
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     private void AttackBadGuy()
     {
         bool shouldSlow = true;
@@ -56,7 +57,7 @@ public class DamageTestScript : MonoBehaviour
             shouldSlow = false;
         }
         Debug.Log("High Yay");
-        bigBadGuy.GetComponent<BigBadBehavior>().hurtEnemy(damage, shouldSlow);
+        bigBadGuy.GetComponent<BigBadBehavior>().HurtEnemy(damage, shouldSlow);
         Destroy(myself);
     }
 
@@ -71,5 +72,4 @@ public class DamageTestScript : MonoBehaviour
         bigBadGuy.GetComponent<BigBadBehavior>().SlowEnemy(slowSpeed, 3.0f);
         Destroy(myself);
     }
-
 }

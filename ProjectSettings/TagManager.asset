@@ -6,6 +6,8 @@ TagManager:
   tags:
   - BadGuy
   - TrapZone
+  - AudioManager
+  - Trap
   layers:
   - Default
   - TransparentFX

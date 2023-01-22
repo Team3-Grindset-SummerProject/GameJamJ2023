@@ -5,47 +5,49 @@ using UnityEngine.AI;
 public class BigBadBehavior : MonoBehaviour
 {
     private int health = 5;
-    private float enemySpeed = 10;
+    [SerializeField] private float enemySpeed = 5, enemyBaseSpeed = 5;
     private GameObject player = null;
     [SerializeField] private NavMeshAgent agent = null;
     [SerializeField] private GameObject reversePoint = null;
-    // Start is called before the first frame update
+    
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        enemySpeed = enemyBaseSpeed;
+
+        transform.position = reversePoint.transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         agent.SetDestination(player.transform.position);
         agent.speed = enemySpeed;
     }
 
-    public void SlowEnemy (int newSpeed, float slowTime)
+    public void SlowEnemy (int slowStrength, float slowTime)
     {
-        enemySpeed = newSpeed;
-        StartCoroutine(enemySlowLegnth(slowTime));
+        enemySpeed -= slowStrength;
+        StartCoroutine(EnemySlowLegnth(slowTime));
     }
 
-    private IEnumerator enemySlowLegnth(float slowTime)
+    private IEnumerator EnemySlowLegnth(float slowTime)
     {
         yield return new WaitForSeconds(slowTime);
-        enemySpeed = 10;
+        enemySpeed = enemyBaseSpeed;
     }
 
-    public void hurtEnemy(int damage, bool shouldSlow)
+    public void HurtEnemy(int damage, bool shouldSlow)
     {
         health -= damage;
         if(health <= 0)
         {
-            SlowEnemy(0, 2.0f);
+            SlowEnemy(10, 2.0f);
             health = 5;
             return;
         }
         if (shouldSlow)
         {
-            SlowEnemy(0, 0.15f);
+            SlowEnemy(10, 0.15f);
         }
     }
 

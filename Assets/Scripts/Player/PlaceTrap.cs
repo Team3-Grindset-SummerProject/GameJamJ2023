@@ -47,6 +47,9 @@ public class PlaceTrap : MonoBehaviour
         if (closestTrap.trapPlaced)
             return;
         
+        if(!canPlaceTrap)
+            return;
+
         Instantiate(currentTrap, closestTrap.GetTrapPosition(), Quaternion.identity);
 
         closestTrap.trapPlaced = true;

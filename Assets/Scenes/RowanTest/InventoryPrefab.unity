@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 13275504}
   - component: {fileID: 13275503}
   m_Layer: 5
-  m_Name: BlackHoldButton
+  m_Name: AcidButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 622199025}
   - component: {fileID: 622199024}
   m_Layer: 5
-  m_Name: Acid
+  m_Name: BlackHole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 89c1e9f14f9cd4f42b9cd6787d3e45f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 917c6c3d259326f46814627b75d0ed53, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -942,7 +942,7 @@ GameObject:
   - component: {fileID: 1623253360}
   - component: {fileID: 1623253359}
   m_Layer: 5
-  m_Name: AcidButton
+  m_Name: BlackHoleButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1177,7 +1177,7 @@ GameObject:
   - component: {fileID: 2106638002}
   - component: {fileID: 2106638001}
   m_Layer: 5
-  m_Name: BlackHole
+  m_Name: Acid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1223,7 +1223,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 917c6c3d259326f46814627b75d0ed53, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 89c1e9f14f9cd4f42b9cd6787d3e45f2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

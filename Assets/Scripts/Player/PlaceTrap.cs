@@ -45,6 +45,9 @@ public class PlaceTrap : MonoBehaviour
 
     public void OnPlaceTrap()
     {
+        if (closestTrap == null)
+         return;
+
         if (closestTrap.trapPlaced)
             return;
         

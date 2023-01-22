@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject trailRenderObject;
     
     [Space] [Header("Audio")] [SerializeField] private AudioManager audioManager;
-    [SerializeField] private AudioClip jump, fall, footstep, slideNormal, doubleJump;
+    [SerializeField] private AudioClip jump, fall, footstep, slideNormal, slideElectric, doubleJump;
 
     [Space] [Header("Particles")] [SerializeField]
     private GameObject lightningParticle;
@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
             || Physics.Raycast(groundCheckPositionR.position, transform.TransformDirection(Vector3.down), out groundHit, groundCheckMaxDistance)
                 || Physics.Raycast(groundCheckPositionM.position, transform.TransformDirection(Vector3.down), out groundHit, groundCheckMaxDistance))
         {
-            if (velocity.y < 0)
+            if (velocity.y < 0 && !groundHit.transform.CompareTag("Trap"))
             {
                 if (playerState == PlayerState.Airborne)
                     audioManager.AddSoundToQueue(fall, false, 0.35f);
@@ -119,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit ceilingHit;
         if (Physics.Raycast(ceilingCheckPosition.position, transform.TransformDirection(Vector3.up), out ceilingHit, groundCheckMaxDistance))
         {
-            if (velocity.y > 0.1f)
+            if (velocity.y > 0.1f && !ceilingHit.transform.CompareTag("Trap"))
             {
                 velocity.y = 0;
             }
@@ -186,6 +186,9 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit wallHit;
         if (Physics.Raycast(wallCheckPosition.position, new Vector3(moveInput.x, 0, 0), out wallHit, maxWallDistance))
         {
+            if (wallHit.transform.CompareTag("Trap"))
+                return;
+            
             if (!canWallJump)
             {
                 wallDirection = moveInput.x;
@@ -341,11 +344,15 @@ public class PlayerMovement : MonoBehaviour
         {
             if (playerState == PlayerState.Clinging && wallTime > 0.35f)
             {
-                audioManager.AddSoundToQueue(slideNormal, false, 0.05f + (wallTime / 12.5f));
+                audioManager.AddSoundToQueue(slideNormal, false, 0.07f + (wallTime / 12.5f));
+                audioManager.AddSoundToQueue(slideElectric, false, 0.035f);
                 yield return new WaitForSeconds(1.0f);
             }
             else
             {
+                audioManager.StopAudioOfType(slideElectric);
+                audioManager.StopAudioOfType(slideNormal);
+                
                 yield return new WaitForSeconds(0.25f);
             }
         }

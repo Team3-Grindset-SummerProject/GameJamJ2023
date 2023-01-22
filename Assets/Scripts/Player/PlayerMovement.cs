@@ -63,6 +63,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool hasWallJumped;
     [SerializeField] private float wallTime;
 
+    private void Awake()
+    {
+        QualitySettings.vSyncCount = 1;
+        Application.targetFrameRate = 120;
+    }
+
     private void Start()
     {
         wallJumpEnabled = true;
@@ -72,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        velocity.x = ((playerState == PlayerState.Clinging ? wallMoveSpeed : moveSpeed) * moveInput.x) * Time.deltaTime;
+        velocity.x = ((playerState == PlayerState.Clinging ? wallMoveSpeed : moveSpeed) * moveInput.x);
 
         if (hasWallJumped && Math.Abs(moveInput.x - (-wallDirection)) < 0.1)
         {
@@ -80,10 +86,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         horizontalVelocityImpulse = Mathf.Lerp(horizontalVelocityImpulse, 0, impulseLerp * Time.deltaTime);
-
-        Vector2 tempVelocity = new Vector2(Mathf.Lerp(rb.velocity.x, (velocity.x * 1000f), moveLerp * Time.deltaTime), velocity.y);
-       
-        rb.velocity = tempVelocity + new Vector2(horizontalVelocityImpulse, 0f);
 
         RaycastHit groundHit;
         if (Physics.Raycast(groundCheckPositionL.position, transform.TransformDirection(Vector3.down), out groundHit, groundCheckMaxDistance)
@@ -158,6 +160,13 @@ public class PlayerMovement : MonoBehaviour
         playerAnimator.SetFloat("WallTime", wallTime);
     }
 
+    private void FixedUpdate()
+    {
+        Vector2 tempVelocity = new Vector2(Mathf.Lerp(rb.velocity.x, velocity.x, moveLerp * Time.deltaTime), velocity.y);
+
+        rb.velocity = tempVelocity + new Vector2(horizontalVelocityImpulse * 50, 0f);
+    }
+
     private void CheckWall()
     {
         if (!wallJumpEnabled)
@@ -220,8 +229,8 @@ public class PlayerMovement : MonoBehaviour
                 GameObject lightning2 = Instantiate(lightningParticle, ceilingCheckPosition.position + new Vector3(prevDir > 0 ? 0.15f : -0.15f, 0, -0.3f), 
                     Quaternion.Euler(new Vector3(0, 0, prevDir > 0 ? -120f : -60f)));
 
-                lightning.transform.localScale = new Vector3(0.15f, 0.3f, 0.1f);
-                lightning2.transform.localScale = new Vector3(0.15f, 0.3f, 0.1f);
+                lightning.transform.localScale = new Vector3(0.15f, 0.1f, 0.1f);
+                lightning2.transform.localScale = new Vector3(0.15f, 0.1f, 0.1f);
             }
             
             secondJumpAvailable = false;
@@ -301,8 +310,8 @@ public class PlayerMovement : MonoBehaviour
                     transform.position + new Vector3(wallDirection * 0.6f, 1f, -0.25f),
                     Quaternion.Euler(new Vector3(0f, 0f, 90f)));
 
-                lightning1.transform.localScale = new Vector3(0.06f, 0.25f, 0.1f);
-                lightning2.transform.localScale = new Vector3(0.06f, 0.25f, 0.1f);
+                lightning1.transform.localScale = new Vector3(0.06f, 0.125f, 0.1f);
+                lightning2.transform.localScale = new Vector3(0.06f, 0.125f, 0.1f);
                 yield return new WaitForSeconds(0.1f);
             }
             else
@@ -322,7 +331,7 @@ public class PlayerMovement : MonoBehaviour
                     transform.position + new Vector3(0f, 0.1f, -0.25f),
                     Quaternion.Euler(new Vector3(0f, 0f, prevDir < 0f ? 180f : 0f)));
 
-                lightning1.transform.localScale = new Vector3(0.015f, 0.27f, 0.1f);
+                lightning1.transform.localScale = new Vector3(0.015f, 0.075f, 0.1f);
                 
                 yield return new WaitForSeconds(0.25f);
             }

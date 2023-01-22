@@ -238,7 +238,7 @@ MonoBehaviour:
   velocity: {x: 0, y: -0.01}
   horizontalVelocityImpulse: 0
   moveInput: {x: 0, y: 0}
-  moveSpeed: 6
+  moveSpeed: 10
   moveLerp: 15
   impulseLerp: 15
   jumpForce: 14.5
@@ -246,7 +246,7 @@ MonoBehaviour:
   groundCheckMaxDistance: 0.225
   wallJumpForce: 0.75
   wallMoveSpeed: 7
-  wallJumpDirection: {x: 1.15, y: 18}
+  wallJumpDirection: {x: 0.4, y: 18.5}
   wallGravity: -7
   maxWallDistance: 1
   wallCheckDisableInvoked: 0
@@ -546,8 +546,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2816952967021062127}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.935428, y: -17.402765, z: 90.99988}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -610,14 +610,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3017269955977412662}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.5, z: -12}
+  m_LocalRotation: {x: 0.008726558, y: 0, z: 0, w: 0.999962}
+  m_LocalPosition: {x: 0, y: 3.5, z: -15.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2097775668366863160}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1, y: 0, z: 0}
 --- !u!20 &4230862843896251271
 Camera:
   m_ObjectHideFlags: 0
@@ -643,7 +643,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 90
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -715,7 +715,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followTransform: {fileID: 2097775668366863160}
-  cameraSpeed: 6.5
+  cameraSpeed: 7
+  offset: {x: 0, y: 3.5, z: -15.5}
 --- !u!1 &5676269895508157065
 GameObject:
   m_ObjectHideFlags: 0

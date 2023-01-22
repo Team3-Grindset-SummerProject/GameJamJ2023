@@ -10,15 +10,17 @@ public class RemoveInventory : MonoBehaviour
     public TextMeshProUGUI TimeNumber;
     public TextMeshProUGUI BlackHoleNumber;
 
-     public int AcidNum = 0;
+    public int AcidNum1 = 0;
     public int TimeNum = 0;
     public int BlackHoleNum = 0;
 
 
     public void AcidTrapPlace()
     {
-        AcidNum--;
-        AcidNumber.text = AcidNum.ToString();
+        
+            AcidNum1--;
+            AcidNumber.text = AcidNum1.ToString();
+        
     }
 
     public void TimeTrapPlace()

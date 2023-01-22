@@ -55,6 +55,11 @@ public class PlayerMovement : MonoBehaviour
     private bool _wallJumpEnabled;
     private bool _hasWallJumped;
 
+    private void Start()
+    {
+        _wallJumpEnabled = true;
+    }
+
     private void Update()
     {
         velocity.x = ((playerState == PlayerState.Clinging ? wallMoveSpeed : moveSpeed) * moveInput.x) * Time.deltaTime;

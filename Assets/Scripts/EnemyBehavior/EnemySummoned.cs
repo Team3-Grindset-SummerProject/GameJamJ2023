@@ -22,7 +22,7 @@ public class EnemySummoned : MonoBehaviour
     {
         xPos = Mathf.Abs(player.transform.position.x - this.transform.position.x);
         yPos = Mathf.Abs(player.transform.position.y - this.transform.position.y);
-        if(xPos <= 0.2 && yPos <= 0.2)
+        if(xPos <= 2 && yPos <= 2)
         {
             SummonHim();
         }

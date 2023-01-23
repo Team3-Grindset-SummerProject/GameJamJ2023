@@ -18,10 +18,14 @@ public class DamageTestScript : MonoBehaviour
     [SerializeField] private bool isPlayer = false;
     [SerializeField] private GameObject blackScrene = null;
     [SerializeField] private AudioSource monsterScreem = null;
+    private AudioManager a;
+    
+    public AudioClip m;
     //private float zDistance = 0;
     // Start is called before the first frame update
     void Start()
     {
+        
         bigBadGuy = GameObject.FindGameObjectWithTag("BadGuy");
     }
 

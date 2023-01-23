@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(RunLightningEffect());
         StartCoroutine(WallClingSound());
         
-        audioManager.AddSoundToQueue(music, true, 0.25f);
+        audioManager.AddSoundToQueue(music, true, 0.15f);
     }
 
     private void Update()

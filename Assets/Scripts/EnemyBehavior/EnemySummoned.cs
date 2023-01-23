@@ -8,6 +8,7 @@ public class EnemySummoned : MonoBehaviour
     [SerializeField] private GameObject enemy = null;
     [SerializeField] private GameObject enemySprite = null;
     [SerializeField] private GameObject player = null;
+    [SerializeField] private AudioClip c;
 
     private float xPos = 0.0f;
     private float yPos = 0.0f;
@@ -30,6 +31,10 @@ public class EnemySummoned : MonoBehaviour
 
     private void SummonHim()
     {
+        AudioManager a = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
+        a.StopAllSounds();
+        a.AddSoundToQueue(c, true, 0.1f);
+        
         enemySprite.SetActive(true);
         enemy.GetComponent<BigBadBehavior>().enabled = !enemy.GetComponent<BigBadBehavior>().enabled;
         enemy.GetComponent<NavMeshAgent>().enabled = !enemy.GetComponent<NavMeshAgent>().enabled;

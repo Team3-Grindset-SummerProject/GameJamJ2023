@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject trailRenderObject;
     
     [Space] [Header("Audio")] [SerializeField] private AudioManager audioManager;
-    [SerializeField] private AudioClip jump, fall, footstep, slideNormal, slideElectric, doubleJump;
+    [SerializeField] private AudioClip jump, fall, footstep, slideNormal, slideElectric, doubleJump, music;
 
     [Space] [Header("Particles")] [SerializeField]
     private GameObject lightningParticle;
@@ -79,6 +79,8 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(WallLightningEffect());
         StartCoroutine(RunLightningEffect());
         StartCoroutine(WallClingSound());
+        
+        audioManager.AddSoundToQueue(music, true, 0.25f);
     }
 
     private void Update()
